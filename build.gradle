@@ -1,0 +1,11 @@
+group "io.kurumi"
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'http://nexus.gluonhq.com/nexus/content/repositories/releases'
+        }
+    }
+}
