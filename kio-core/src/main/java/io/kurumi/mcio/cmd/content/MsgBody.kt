@@ -12,7 +12,7 @@ import io.kurumi.mcio.event.EventType
 class MsgBody : JSONObject {
 
     constructor()
-    constructor(map: JSONObject) : super(map,map.keys.toTypedArray())
+    constructor(map: JSONObject) : super(map)
 
     var origin by StringField("origin")
     var version by IntField("version")

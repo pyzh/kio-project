@@ -1,4 +1,4 @@
-package io.kurumi.platform.desktop
+package io.kurumi.desktop
 
 import cn.hutool.core.lang.Caller
 

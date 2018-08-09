@@ -1,4 +1,4 @@
-package io.kurumi.platform.desktop
+package io.kurumi.desktop
 
 object 桌面应用测试 : 桌面应用() {
 

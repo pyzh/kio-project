@@ -1,12 +1,11 @@
-package io.kurumi.platform.desktop
+package io.kurumi.desktop
 
 import cn.hutool.core.util.ReflectUtil
-import com.jfoenix.controls.JFXDecorator
 import io.kurumi.content.上下文
 import io.kurumi.content.应用
 import io.kurumi.content.界面
-import io.kurumi.桌面.视图.桌面基本视图
-import io.kurumi.ui.视图
+import io.kurumi.desktop.ui.桌面视图
+import io.kurumi.ui.widget.视图
 import javafx.scene.Scene
 import javafx.stage.Screen
 import javafx.stage.Stage
@@ -25,11 +24,11 @@ class 桌面界面实现(override val 应用: 应用) : Stage(), 界面.实现 {
 
             if (value == null) error("vlaue cannot be null")
 
-            if (value.取实现() !is 桌面基本视图) {
+            if (value.实现 !is 桌面视图) {
                 throw IllegalStateException("不支持的视图实现")
             }
 
-            val _内容 = value.取实现() as 桌面基本视图
+            val _内容 = value.实现 as 桌面视图
 
             var width = 800.0
             var height = 600.0
@@ -40,13 +39,7 @@ class 桌面界面实现(override val 应用: 应用) : Stage(), 界面.实现 {
             } catch (ignored: Exception) {
             }
 
-            val _底层 = JFXDecorator(this, _内容.取内容())
-
-            this.scene = Scene(_底层, width, height)
-
-            val stylesheets = scene.stylesheets
-            stylesheets.addAll(JFXDecorator::class.java.getResource("/css/jfoenix-fonts.css").toExternalForm(),
-                    JFXDecorator::class.java.getResource("/css/jfoenix-design.css").toExternalForm())
+            this.scene = Scene(_内容.内容, width, height)
 
         }
 

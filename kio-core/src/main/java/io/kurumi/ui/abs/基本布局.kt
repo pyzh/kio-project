@@ -1,6 +1,6 @@
 package io.kurumi.ui.abs
 
-import io.kurumi.ui.视图
+import io.kurumi.ui.widget.视图
 
 interface 基本布局 : 基本视图 {
 
@@ -8,10 +8,10 @@ interface 基本布局 : 基本视图 {
 
     fun 取子视图(_键值: Int): 视图
 
-    fun 取子视图(): Array<视图>
+    fun 取子视图(): MutableCollection<视图>
 
     fun 删子视图(_键值: Int): 视图
 
-    fun 删子视图(): Array<视图>
+    fun 删子视图(): MutableCollection<视图>
 
 }

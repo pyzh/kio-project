@@ -1,7 +1,7 @@
-package io.kurumi.platform.desktop
+package io.kurumi.desktop
 
 import cn.hutool.core.util.ClipboardUtil
-import io.kurumi.platform.视图实现
+import io.kurumi.ui.视图实现
 import io.kurumi.platform.设备实现
 import io.kurumi.content.上下文
 import io.kurumi.content.界面
@@ -23,4 +23,5 @@ object 桌面设备实现 : 设备实现 {
 
     override val 视图实现: 视图实现
         get() = 桌面视图实现
+
 }

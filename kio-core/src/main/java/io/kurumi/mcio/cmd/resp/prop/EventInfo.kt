@@ -10,7 +10,7 @@ import io.kurumi.mcio.type.GameMode
 
 open class EventInfo : JSONObject {
 
-    constructor(map: JSONObject) : super(map,map.keys.toTypedArray())
+    constructor(map: JSONObject) : super(map)
 
      val Biome by IntField("Biome")
      val Build by StringField("Build")

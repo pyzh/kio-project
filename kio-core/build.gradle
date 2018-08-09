@@ -2,19 +2,19 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.2.60'
 }
 
-def hutool_version = "4.1.4"
+def hutool_version = "4.1.5"
 
 dependencies {
     compile("cn.hutool:hutool-core:${hutool_version}")
     compile("cn.hutool:hutool-http:${hutool_version}")
     compile("cn.hutool:hutool-json:${hutool_version}")
 
-    compile 'com.jfoenix:jfoenix:8.0.5'
+//    compile 'com.jfoenix:jfoenix:8.0.5'
 
     compile("org.fusesource.jansi:jansi:1.17.1")
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-   // compile "com.gluonhq:charm:5.0.0"
+    compileOnly "com.gluonhq:charm-glisten:5.0.0"
 }
 
 sourceCompatibility = "1.8"

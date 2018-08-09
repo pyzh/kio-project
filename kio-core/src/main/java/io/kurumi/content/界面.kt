@@ -1,6 +1,6 @@
 package io.kurumi.content
 
-import io.kurumi.ui.视图
+import io.kurumi.ui.widget.视图
 
 import java.io.Serializable
 

@@ -1,6 +1,6 @@
 package io.kurumi.mcio.cmd
 
-import io.kurumi.console.日志.Companion.debug
+import io.kurumi.console.debug
 import io.kurumi.mcio.cmd.content.MCMsg
 import io.kurumi.mcio.cmd.content.MsgBody
 import io.kurumi.mcio.cmd.content.MsgHeader

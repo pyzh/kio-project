@@ -7,7 +7,6 @@ interface 应用 : 上下文 {
     fun 应用启动事件() {}
 
     override fun 启动界面(_界面: Class<out 界面>) {
-        TODO()
     }
 
 }

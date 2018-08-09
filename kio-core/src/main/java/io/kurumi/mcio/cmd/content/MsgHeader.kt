@@ -10,7 +10,7 @@ import io.kurumi.mcio.cmd.content.header.CmdMessage
 class MsgHeader : JSONObject {
 
     constructor()
-    constructor(map : JSONObject) : super(map,map.keys.toTypedArray())
+    constructor(map : JSONObject) : super(map)
 
     var requestId by StringField("requestId")
     var messagePurpose by enumField<CmdMessage>("messagePurpose") { CmdMessage.keyTrans(it?.toString() ?: "")}

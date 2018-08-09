@@ -2,6 +2,7 @@ package io.kurumi.platform
 
 import io.kurumi.content.上下文
 import io.kurumi.content.界面
+import io.kurumi.ui.视图实现
 
 interface 设备实现 {
 

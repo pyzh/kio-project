@@ -8,7 +8,7 @@ import io.kurumi.mcio.cmd.resp.Status
 class CmdResult : JSONObject {
 
     constructor()
-    constructor(map: JSONObject) : super(map,map.keys.toTypedArray())
+    constructor(map: JSONObject) : super(map)
 
     val statusCode by IntField("statusCode")
 

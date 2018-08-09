@@ -1,7 +1,7 @@
 package io.kurumi.mcio.event
 
 import cn.hutool.json.JSONObject
-import io.kurumi.console.日志.Companion.info
+import io.kurumi.console.info
 import io.kurumi.mcio.cmd.content.CmdResult
 import io.kurumi.mcio.cmd.content.MCMsg
 import io.kurumi.mcio.cmd.content.MsgBody
