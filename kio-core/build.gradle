@@ -14,7 +14,9 @@ dependencies {
     compile("org.fusesource.jansi:jansi:1.17.1")
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compileOnly "com.gluonhq:charm-glisten:5.0.0"
+
+    compileOnly project(":kio-jselibs")
+
 }
 
 sourceCompatibility = "1.8"

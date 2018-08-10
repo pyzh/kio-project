@@ -1,6 +1,6 @@
 package io.kurumi.ui.abs
 
-import io.kurumi.ui.widget.视图
+import io.kurumi.ui.view.视图
 
 interface 基本视图 {
 

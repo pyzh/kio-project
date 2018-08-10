@@ -4,13 +4,13 @@ import cn.hutool.core.util.ReflectUtil
 import io.kurumi.content.上下文
 import io.kurumi.content.应用
 import io.kurumi.content.界面
-import io.kurumi.desktop.ui.桌面视图
-import io.kurumi.ui.widget.视图
+import io.kurumi.desktop.ui.view.桌面视图
+import io.kurumi.ui.view.视图
 import javafx.scene.Scene
 import javafx.stage.Screen
 import javafx.stage.Stage
 
-class 桌面界面实现(override val 应用: 应用) : Stage(), 界面.实现 {
+class 桌面界面(override val 应用: 应用) : Stage(), 界面.实现 {
 
     override var 标题: String
         get() = title
@@ -51,7 +51,7 @@ class 桌面界面实现(override val 应用: 应用) : Stage(), 界面.实现 {
 
         fun 启动界面(_上下文: 上下文, _界面: Class<out 界面>) {
 
-            val _实现 = 桌面界面实现(_上下文.应用)
+            val _实现 = 桌面界面(_上下文.应用)
 
             val _实例 = ReflectUtil.newInstance(_界面)
 

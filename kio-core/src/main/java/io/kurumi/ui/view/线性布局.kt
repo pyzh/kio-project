@@ -1,4 +1,4 @@
-package io.kurumi.ui.layout
+package io.kurumi.ui.view
 
 import io.kurumi.content.上下文
 import io.kurumi.platform.设备

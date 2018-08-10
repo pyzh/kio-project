@@ -1,15 +1,16 @@
-package io.kurumi.desktop.ui
+package io.kurumi.desktop.ui.view
 
 import io.kurumi.content.上下文
 import io.kurumi.ui.abs.基本布局
-import io.kurumi.ui.layout.布局
-import io.kurumi.ui.widget.视图
+import io.kurumi.ui.view.视图
 import javafx.collections.ListChangeListener
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 import java.util.*
 
-open class 桌面布局 (override val 内容 : Pane) : 桌面视图(内容), 基本布局 {
+open class 桌面布局(_上下文: 上下文, override val 内容: Pane) : 桌面视图(_上下文, 内容), 基本布局 {
+
+    constructor(_上下文: 上下文) : this(_上下文, Pane())
 
     private val 子视图 = LinkedList<视图>()
 
@@ -56,7 +57,7 @@ open class 桌面布局 (override val 内容 : Pane) : 桌面视图(内容), 基
     }
 
     override fun 删子视图(_键值: Int): 视图 {
-        return 内容.children.removeAt(_键值).userData as 视图
+        return 内容.children.removeAt(_键值).properties[键值_视图] as 视图
     }
 
     @Suppress("UNCHECKED_CAST")

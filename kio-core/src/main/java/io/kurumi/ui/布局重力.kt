@@ -1,4 +1,4 @@
-package io.kurumi.ui.工具
+package io.kurumi.ui
 
 enum class 布局重力 {
 

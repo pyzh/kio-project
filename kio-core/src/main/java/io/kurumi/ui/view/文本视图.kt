@@ -1,9 +1,8 @@
-package io.kurumi.ui.widget
+package io.kurumi.ui.view
 
 import io.kurumi.content.上下文
 import io.kurumi.platform.设备
 import io.kurumi.ui.abs.基本文本
-import io.kurumi.ui.layout.布局
 
 open class 文本视图 internal constructor(_上下文: 上下文, _实现: 基本文本) : 视图(_上下文, _实现), 基本文本 by _实现 {
 

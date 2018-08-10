@@ -1,9 +1,8 @@
-package io.kurumi.ui.layout
+package io.kurumi.ui.view
 
 import io.kurumi.content.上下文
 import io.kurumi.platform.设备
 import io.kurumi.ui.abs.基本布局
-import io.kurumi.ui.widget.视图
 
 open class 布局 internal constructor(_上下文: 上下文, _实现 : 基本布局) : 视图(_上下文,_实现), 基本布局 by _实现 {
 
