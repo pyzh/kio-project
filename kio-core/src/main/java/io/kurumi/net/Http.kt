@@ -1,8 +1,10 @@
 package io.kurumi.net
 
 import cn.hutool.core.io.resource.Resource
+import cn.hutool.core.util.StrUtil
 import cn.hutool.http.Header
 import cn.hutool.http.HttpRequest
+import cn.hutool.http.HttpUtil
 import cn.hutool.http.Method
 import cn.hutool.json.JSON
 import java.io.File
@@ -14,9 +16,25 @@ import javax.net.ssl.SSLSocketFactory
 
 class Http : HttpRequest {
 
-    companion object {
+    companion object : HttpUtil() {
 
         const val jsonContentType = "application/json"
+
+        fun getPublicIp(): String? {
+
+            val str = get("https://ip.cn")
+
+            return StrUtil.subBetween(str, "您现在的 IP：<code>", "</code>")
+
+        }
+
+        fun getPublicAddress(): String? {
+
+            val str = get("https://ip.cn")
+
+            return StrUtil.subBetween(str, "所在地理位置：<code>", "</code>")
+
+        }
 
     }
 
@@ -25,6 +43,7 @@ class Http : HttpRequest {
     constructor(method: Method, url: String) : this(url) {
         method(method)
     }
+
 
     fun json(jsonString: String): Http {
         body(jsonString, jsonContentType)

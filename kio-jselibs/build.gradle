@@ -1,0 +1,10 @@
+apply plugin : "java"
+
+group parent.group
+version parent.version
+
+dependencies {
+
+    compile "com.gluonhq:charm-glisten:5.0.0"
+
+}
