@@ -6,6 +6,7 @@ import io.kurumi.content.应用
 import io.kurumi.content.界面
 import io.kurumi.desktop.ui.view.桌面视图
 import io.kurumi.ui.view.视图
+import io.kurumi.ui.颜色
 import javafx.scene.Scene
 import javafx.stage.Screen
 import javafx.stage.Stage
@@ -42,6 +43,8 @@ class 桌面界面(override val 应用: 应用) : Stage(), 界面.实现 {
             this.scene = Scene(_内容.内容, width, height)
 
         }
+
+
 
     override fun 关闭() {
         hide()

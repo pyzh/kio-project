@@ -1,6 +1,8 @@
 package io.kurumi.content
 
+import io.kurumi.platform.设备
 import io.kurumi.ui.view.视图
+import io.kurumi.ui.颜色
 
 import java.io.Serializable
 
@@ -25,6 +27,7 @@ open class 界面 : 上下文, Serializable {
     }
 
     open fun 界面创建事件() {
+        当前实现.应用颜色(颜色.当前颜色)
     }
 
     // =========================
@@ -37,22 +40,11 @@ open class 界面 : 上下文, Serializable {
 
         fun 关闭()
 
-        val 应用:应用
+        val 应用: 应用
         var 标题: String
         var 视图: 视图?
 
-    }
-
-    // =========================
-
-    companion object {
-
-        @JvmStatic
-        fun 启动界面(_上下文 : 上下文,_界面 : Class<out 界面>) {
-
-
-
-        }
+        fun 应用颜色(_颜色: 颜色)
 
     }
 

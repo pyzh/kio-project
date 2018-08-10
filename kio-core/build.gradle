@@ -15,7 +15,7 @@ dependencies {
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
-    compileOnly project(":kio-jselibs")
+    compileOnly project(":kio-desktop")
 
 }
 

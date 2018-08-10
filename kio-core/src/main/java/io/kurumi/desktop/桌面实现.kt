@@ -10,6 +10,7 @@ import io.kurumi.ui.abs.基本文本
 import io.kurumi.ui.abs.基本线性布局
 import io.kurumi.ui.abs.基本视图
 import io.kurumi.ui.视图实现
+import io.kurumi.ui.颜色
 import javafx.application.Platform
 
 object 桌面实现 : 设备实现, 视图实现 {

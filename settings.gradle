@@ -1,4 +1,5 @@
 rootProject.name = 'kio-project'
 include 'kio-core'
-include 'kio-jselibs'
+include 'kio-desktop'
 
+include 'kio-android'
