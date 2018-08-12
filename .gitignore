@@ -2,7 +2,7 @@
 /.gradle
 *.properties
 .DS_Store
-/build
+build
 /.idea
 /out
 /captures

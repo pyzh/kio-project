@@ -6,8 +6,7 @@ import io.kurumi.ui.abs.基本布局
 
 open class 布局 internal constructor(_上下文: 上下文, _实现 : 基本布局) : 视图(_上下文,_实现), 基本布局 by _实现 {
 
-    constructor(_上下文: 上下文,_初始化: (布局.() -> Unit)?) : this
-    (_上下文, 设备.实现.视图实现.新布局实现(_上下文))
+    constructor(_上下文: 上下文, _初始化: (布局.() -> Unit)?) : this(_上下文, 设备.视图实现.新布局实现(_上下文))
 
 }
 
