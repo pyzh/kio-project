@@ -4,116 +4,156 @@
 	<style name="Kurumi" parent="@android:style/Theme.Holo.Light.NoActionBar"/>
 	
 	<style name="Kurumi.Red">
-		<item name="colorPrimary">@color/primary_color_red</item>
-		<item name="colorPrimaryDark">@color/primary_color_red_dark</item>
-		<item name="colorAccent">@color/accent_color_red</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_red</item>
+				<item name="colorPrimaryDark">@color/primary_color_red_dark</item>
+				<item name="colorAccent">@color/accent_color_red</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Pink">
-		<item name="colorPrimary">@color/primary_color_pink</item>
-		<item name="colorPrimaryDark">@color/primary_color_pink_dark</item>
-		<item name="colorAccent">@color/accent_color_pink</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_pink</item>
+				<item name="colorPrimaryDark">@color/primary_color_pink_dark</item>
+				<item name="colorAccent">@color/accent_color_pink</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Purple">
-		<item name="colorPrimary">@color/primary_color_purple</item>
-		<item name="colorPrimaryDark">@color/primary_color_purple_dark</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_purple</item>
+				<item name="colorPrimaryDark">@color/primary_color_purple_dark</item>
+				<item name="colorAccent">@color/accent_color_purple</item>
+		-->
+	
 	</style>
 	
 	<style name="Kurumi.DeepPurple">
-		<item name="colorPrimary">@color/primary_color_deep_purple</item>
-		<item name="colorPrimaryDark">@color/primary_color_deep_purple_dark</item>
-		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_deep_purple</item>
+				<item name="colorPrimaryDark">@color/primary_color_deep_purple_dark</item>
+				<item name="colorAccent">@color/accent_color_deep_purple</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Indigo">
-		<item name="colorPrimary">@color/primary_color_indigo</item>
-		<item name="colorPrimaryDark">@color/primary_color_indigo_dark</item>
-		<item name="colorAccent">@color/accent_color_indigo</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_indigo</item>
+				<item name="colorPrimaryDark">@color/primary_color_indigo_dark</item>
+				<item name="colorAccent">@color/accent_color_indigo</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Blue">
-		<item name="colorPrimary">@color/primary_color_blue</item>
-		<item name="colorPrimaryDark">@color/primary_color_blue_dark</item>
-		<item name="colorAccent">@color/accent_color_blue</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_blue</item>
+				<item name="colorPrimaryDark">@color/primary_color_blue_dark</item>
+				<item name="colorAccent">@color/accent_color_blue</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.LightBlue">
-		<item name="colorPrimary">@color/primary_color_light_blue</item>
-		<item name="colorPrimaryDark">@color/primary_color_light_blue_dark</item>
-		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_light_blue</item>
+				<item name="colorPrimaryDark">@color/primary_color_light_blue_dark</item>
+				<item name="colorAccent">@color/accent_color_light_blue</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Cyan">
-		<item name="colorPrimary">@color/primary_color_cyan</item>
-		<item name="colorPrimaryDark">@color/primary_color_cyan_dark</item>
-		<item name="colorAccent">@color/accent_color_cyan</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_cyan</item>
+				<item name="colorPrimaryDark">@color/primary_color_cyan_dark</item>
+				<item name="colorAccent">@color/accent_color_cyan</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Teal">
-		<item name="colorPrimary">@color/primary_color_teal</item>
-		<item name="colorPrimaryDark">@color/primary_color_teal_dark</item>
-		<item name="colorAccent">@color/accent_color_teal</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_teal</item>
+				<item name="colorPrimaryDark">@color/primary_color_teal_dark</item>
+				<item name="colorAccent">@color/accent_color_teal</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Green">
-		<item name="colorPrimary">@color/primary_color_green</item>
-		<item name="colorPrimaryDark">@color/primary_color_green_dark</item>
-		<item name="colorAccent">@color/accent_color_green</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_green</item>
+				<item name="colorPrimaryDark">@color/primary_color_green_dark</item>
+				<item name="colorAccent">@color/accent_color_green</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.LightGreen">
-		<item name="colorPrimary">@color/primary_color_light_green</item>
-		<item name="colorPrimaryDark">@color/primary_color_light_green_dark</item>
-		<item name="colorAccent">@color/accent_color_light_green</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_light_green</item>
+				<item name="colorPrimaryDark">@color/primary_color_light_green_dark</item>
+				<item name="colorAccent">@color/accent_color_light_green</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Lime">
-		<item name="colorPrimary">@color/primary_color_lime</item>
-		<item name="colorPrimaryDark">@color/primary_color_lime_dark</item>
-		<item name="colorAccent">@color/accent_color_lime</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_lime</item>
+				<item name="colorPrimaryDark">@color/primary_color_lime_dark</item>
+				<item name="colorAccent">@color/accent_color_lime</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Yellow">
-		<item name="colorPrimary">@color/primary_color_yellow</item>
-		<item name="colorPrimaryDark">@color/primary_color_yellow_dark</item>
-		<item name="colorAccent">@color/accent_color_yellow</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_yellow</item>
+				<item name="colorPrimaryDark">@color/primary_color_yellow_dark</item>
+				<item name="colorAccent">@color/accent_color_yellow</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Amber">
-		<item name="colorPrimary">@color/primary_color_amber</item>
-		<item name="colorPrimaryDark">@color/primary_color_amber_dark</item>
-		<item name="colorAccent">@color/accent_color_amber</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_amber</item>
+				<item name="colorPrimaryDark">@color/primary_color_amber_dark</item>
+				<item name="colorAccent">@color/accent_color_amber</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Orange">
-		<item name="colorPrimary">@color/primary_color_orange</item>
-		<item name="colorPrimaryDark">@color/primary_color_orange_dark</item>
-		<item name="colorAccent">@color/accent_color_orange</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_orange</item>
+				<item name="colorPrimaryDark">@color/primary_color_orange_dark</item>
+				<item name="colorAccent">@color/accent_color_orange</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.DeepOrange">
-		<item name="colorPrimary">@color/primary_color_deep_orange</item>
-		<item name="colorPrimaryDark">@color/primary_color_deep_orange_dark</item>
-		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_deep_orange</item>
+				<item name="colorPrimaryDark">@color/primary_color_deep_orange_dark</item>
+				<item name="colorAccent">@color/accent_color_deep_orange</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Brown">
-		<item name="colorPrimary">@color/primary_color_brown</item>
-		<item name="colorPrimaryDark">@color/primary_color_brown_dark</item>
-		<item name="colorAccent">@color/accent_color_brown</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_brown</item>
+				<item name="colorPrimaryDark">@color/primary_color_brown_dark</item>
+				<item name="colorAccent">@color/accent_color_brown</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.Grey">
-		<item name="colorPrimary">@color/primary_color_grey</item>
-		<item name="colorPrimaryDark">@color/primary_color_grey_dark</item>
-		<item name="colorAccent">@color/accent_color_grey</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_grey</item>
+				<item name="colorPrimaryDark">@color/primary_color_grey_dark</item>
+				<item name="colorAccent">@color/accent_color_grey</item>
+		-->
 	</style>
 	
 	<style name="Kurumi.BlueGrey">
-		<item name="colorPrimary">@color/primary_color_blue_grey</item>
-		<item name="colorPrimaryDark">@color/primary_color_blue_grey_dark</item>
-		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<!--
+				<item name="colorPrimary">@color/primary_color_blue_grey</item>
+				<item name="colorPrimaryDark">@color/primary_color_blue_grey_dark</item>
+				<item name="colorAccent">@color/accent_color_blue_grey</item>
+		-->
 	</style>
 
 </resources>

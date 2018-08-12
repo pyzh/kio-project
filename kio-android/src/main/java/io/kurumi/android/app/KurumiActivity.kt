@@ -1,6 +1,6 @@
 package io.kurumi.android.app
 
-import android.app.Activity
+import io.kurumi.android.安卓界面
 
-class KurumiActivity : Activity() {
+class KurumiActivity : 安卓界面() {
 }

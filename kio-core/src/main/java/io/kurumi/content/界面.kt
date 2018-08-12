@@ -1,9 +1,7 @@
 package io.kurumi.content
 
-import io.kurumi.platform.设备
 import io.kurumi.ui.view.视图
 import io.kurumi.ui.颜色
-
 import java.io.Serializable
 
 open class 界面 : 上下文, Serializable {
@@ -33,10 +31,6 @@ open class 界面 : 上下文, Serializable {
     // =========================
 
     interface 实现 {
-
-        fun 取界面(): 界面? {
-            return null
-        }
 
         fun 关闭()
 

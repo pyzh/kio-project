@@ -1,5 +1,4 @@
-rootProject.name = 'kio-project'
+rootProject.name = 'kio'
 include 'kio-core'
 include 'kio-desktop'
-
 include 'kio-android'

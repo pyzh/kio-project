@@ -1,3 +1,20 @@
+plugins {
+    id 'org.hidetake.ssh' version '2.9.0'
+}
+
+ssh.settings {
+    knownHosts = allowAnyHosts
+}
+
+remotes {
+    kurumi {
+        host = sshHost
+        port = new Integer(sshPort)
+        user = sshUser
+        password = sshPswd
+    }
+}
+
 group "io.kurumi"
 version "1.0.0"
 
@@ -8,6 +25,23 @@ allprojects {
         mavenCentral()
         maven {
             url 'http://nexus.gluonhq.com/nexus/content/repositories/releases'
+        }
+    }
+}
+
+subprojects {
+
+    group parent.group
+    version parent.version
+
+}
+
+task pushLocalMvn {
+    doLast {
+        ssh.run {
+            session(remotes.kurumi) {
+                put from: localMvn, into: '/'
+            }
         }
     }
 }
