@@ -17,6 +17,8 @@ interface 基本视图 {
     var 右填充: Int
     var 填充: Int
 
+    var 显示: Boolean
+
     fun 置填充(_上: Int, _下: Int, _左: Int, _右: Int)
 
 }

@@ -1,18 +1,15 @@
 package io.kurumi.android.ui
 
-import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import io.kurumi.android.R
-import io.kurumi.android.安卓应用
-import io.kurumi.android.安卓界面
+import io.kurumi.android.service.安卓界面服务
 import io.kurumi.android.系统服务
 import io.kurumi.platform.content.上下文
-import io.kurumi.platform.content.界面
 import io.kurumi.platform.ui.abs.基本视图
 import io.kurumi.platform.ui.view.视图
 
-class 安卓视图(val 上下文: 上下文, val 内容: View) : 基本视图 {
+open class 安卓视图(val 上下文: 上下文, open val 内容: View = View(安卓界面服务.取安卓上下文(上下文))) : 基本视图 {
 
     override fun 初始化(_视图: 视图) {
 
@@ -86,6 +83,12 @@ class 安卓视图(val 上下文: 上下文, val 内容: View) : 基本视图 {
         内容.setPadding(dp(_左), dp(_上), dp(_右), dp(_下))
     }
 
+    override var 显示: Boolean
+        get() = 内容.visibility == View.VISIBLE
+        set(value) {
+            内容.visibility = if (value) View.VISIBLE else View.GONE
+        }
+
     companion object {
 
         fun px(dimen: Int): Int {
@@ -100,13 +103,20 @@ class 安卓视图(val 上下文: 上下文, val 内容: View) : 基本视图 {
             return ((dimen.toFloat() * 系统服务.屏幕信息.scaledDensity) / 系统服务.屏幕信息.density).toInt()
         }
 
+        fun <T : 视图> View?.取视图(): T? {
 
-        fun getContext(_上下文: 上下文): Context {
-            if (_上下文 is 界面) {
-                return _上下文.实现 as 安卓界面
-            } else {
-                return 安卓应用.实例
+            if (this == null) return null
+
+            var _视图 = getTag(R.id._kio_view_obj) as 视图?
+
+            if (_视图 !== null) {
+                return _视图 as T
             }
+
+            when (this) {
+                else -> TODO()
+            }
+
         }
 
     }

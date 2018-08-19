@@ -78,4 +78,9 @@ open class 桌面视图(val 上下文: 上下文, open val 内容: Region = Regi
         内容.padding = Insets(_上.toDouble(), _右.toDouble(), _下.toDouble(), _左.toDouble())
     }
 
+    override var 显示: Boolean
+        get() = 内容.isVisible
+        set(value) {
+            内容.isVisible = value
+        }
 }
