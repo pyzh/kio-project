@@ -1,6 +1,6 @@
 package io.kurumi.desktop.ui
 
-import io.kurumi.ui.布局重力
+import io.kurumi.platform.ui.布局重力
 import javafx.geometry.Pos
 
 object 桌面重力 {

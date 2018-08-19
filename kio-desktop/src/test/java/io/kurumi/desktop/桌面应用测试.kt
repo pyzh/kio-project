@@ -1,6 +1,6 @@
 package io.kurumi.desktop
 
-import io.kurumi.content.应用
+import io.kurumi.platform.content.应用
 
 object 桌面应用测试 : 桌面应用() {
 

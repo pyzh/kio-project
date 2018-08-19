@@ -1,6 +1,6 @@
-package io.kurumi.ui.abs
+package io.kurumi.platform.ui.abs
 
-import io.kurumi.ui.view.视图
+import io.kurumi.platform.ui.view.视图
 
 interface 基本布局 : 基本视图 {
 

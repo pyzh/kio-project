@@ -1,7 +1,6 @@
-package io.kurumi.ui
+package io.kurumi.platform.ui
 
-import io.kurumi.content.界面
-import java.util.*
+import io.kurumi.platform.content.界面
 
 class 颜色 constructor(_颜色: Array<String>, _基本颜色键值: Int, _基本深色键值: Int, _强调色键值: Int,val 应用器 :(颜色.(界面) -> Unit)? = null) {
 

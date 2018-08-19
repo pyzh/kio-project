@@ -1,7 +1,7 @@
-package io.kurumi.content
+package io.kurumi.platform.content
 
-import io.kurumi.ui.view.视图
-import io.kurumi.ui.颜色
+import io.kurumi.platform.ui.view.视图
+import io.kurumi.platform.ui.颜色
 import java.io.Serializable
 
 abstract class 界面 : 上下文, Serializable {

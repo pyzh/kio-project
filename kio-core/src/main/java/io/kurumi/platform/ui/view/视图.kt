@@ -1,12 +1,12 @@
-package io.kurumi.ui.view
+package io.kurumi.platform.ui.view
 
-import io.kurumi.content.上下文
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本视图
 import io.kurumi.platform.取实现
 import io.kurumi.service.abs.界面服务
 import io.kurumi.service.服务类型
-import io.kurumi.ui.abs.基本视图
 
-open class 视图 internal constructor(val 上下文: 上下文,val 实现: 基本视图) : 基本视图 by 实现 {
+open class 视图 internal constructor(val 上下文: 上下文, val 实现: 基本视图) : 基本视图 by 实现 {
 
     constructor(_上下文: 上下文, _初始化: (视图.() -> Unit)? = null) :
             this(_上下文, (服务类型.界面.取实现() as 界面服务).新视图实现(_上下文)) {

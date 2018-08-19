@@ -30,9 +30,9 @@ android {
     }
     compileSdkVersion 28
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 21
         //noinspection OldTargetApi
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -62,7 +62,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
-
+sourceCompatibility = "1.8"
 
 uploadArchives {
 
@@ -97,7 +97,17 @@ uploadArchives {
 }
 
 dependencies {
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     api project(':kio-core')
+
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
 }

@@ -1,7 +1,7 @@
-package io.kurumi.ui.abs
+package io.kurumi.platform.ui.abs
 
-import io.kurumi.ui.布局方向
-import io.kurumi.ui.布局重力
+import io.kurumi.platform.ui.布局方向
+import io.kurumi.platform.ui.布局重力
 
 interface 基本线性布局 : 基本布局 {
 

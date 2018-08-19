@@ -6,11 +6,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import io.kurumi.android.app.KurumiActivity
-import io.kurumi.content.应用
-import io.kurumi.content.界面
 import io.kurumi.ifNotNull
-import io.kurumi.ui.view.视图
-import io.kurumi.ui.颜色
+import io.kurumi.platform.content.应用
+import io.kurumi.platform.content.界面
+import io.kurumi.platform.ui.view.视图
+import io.kurumi.platform.ui.颜色
 import java.util.*
 
 open class 安卓界面 : Activity(), 界面.界面实现 {

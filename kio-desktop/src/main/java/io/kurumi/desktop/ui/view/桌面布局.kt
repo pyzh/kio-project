@@ -1,8 +1,8 @@
 package io.kurumi.desktop.ui.view
 
-import io.kurumi.content.上下文
-import io.kurumi.ui.abs.基本布局
-import io.kurumi.ui.view.视图
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本布局
+import io.kurumi.platform.ui.view.视图
 import javafx.collections.ListChangeListener
 import javafx.scene.Node
 import javafx.scene.layout.Pane

@@ -1,13 +1,15 @@
-package io.kurumi.ui.view
+package io.kurumi.platform.ui.view
 
-import io.kurumi.content.上下文
-import io.kurumi.platform.设备
-import io.kurumi.ui.abs.基本文本
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本文本
+import io.kurumi.platform.取实现
+import io.kurumi.service.abs.界面服务
+import io.kurumi.service.服务类型
 
 open class 文本视图 internal constructor(_上下文: 上下文, _实现: 基本文本) : 视图(_上下文, _实现), 基本文本 by _实现 {
 
     constructor(_上下文: 上下文, _初始化: (文本视图.() -> Unit)? = null) :
-            this(_上下文, 设备.视图实现.新文本视图实现(_上下文)) {
+            this(_上下文, (服务类型.界面.取实现() as 界面服务).新文本视图实现(_上下文)) {
         _初始化?.invoke(this)
     }
 }

@@ -1,7 +1,6 @@
 package io.kurumi.mcio.event
 
 import cn.hutool.json.JSONObject
-import io.kurumi.console.info
 import io.kurumi.mcio.cmd.content.CmdResult
 import io.kurumi.mcio.cmd.content.MCMsg
 import io.kurumi.mcio.cmd.content.MsgBody
@@ -9,6 +8,7 @@ import io.kurumi.mcio.cmd.content.header.CmdMessage
 import io.kurumi.mcio.cmd.resp.prop.EventInfo
 import io.kurumi.mcio.cmd.resp.prop.PlayerMessageInfo
 import io.kurumi.mcio.server.MCClient
+import io.kurumi.util.info
 
 class MCEventManager(val client: MCClient) {
 

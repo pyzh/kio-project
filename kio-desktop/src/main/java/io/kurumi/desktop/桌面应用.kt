@@ -1,6 +1,6 @@
 package io.kurumi.desktop
 
-import io.kurumi.content.应用
+import io.kurumi.platform.content.应用
 import io.kurumi.platform.主线程运行
 import io.kurumi.platform.设备
 

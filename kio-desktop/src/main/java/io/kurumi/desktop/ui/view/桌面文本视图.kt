@@ -1,7 +1,7 @@
 package io.kurumi.desktop.ui.view
 
-import io.kurumi.content.上下文
-import io.kurumi.ui.abs.基本文本
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本文本
 import javafx.scene.control.Label
 import javafx.scene.paint.Color
 

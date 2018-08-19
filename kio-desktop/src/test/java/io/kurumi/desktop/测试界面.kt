@@ -1,8 +1,8 @@
 package io.kurumi.desktop
 
-import io.kurumi.content.界面
-import io.kurumi.ui.view.垂直布局
-import io.kurumi.ui.view.文本视图
+import io.kurumi.platform.content.界面
+import io.kurumi.platform.ui.view.垂直布局
+import io.kurumi.platform.ui.view.文本视图
 
 class 测试界面 : 界面() {
 

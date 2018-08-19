@@ -1,10 +1,10 @@
 package io.kurumi.desktop.ui.view
 
-import io.kurumi.content.上下文
 import io.kurumi.desktop.ui.桌面重力
-import io.kurumi.ui.abs.基本线性布局
-import io.kurumi.ui.布局方向
-import io.kurumi.ui.布局重力
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本线性布局
+import io.kurumi.platform.ui.布局方向
+import io.kurumi.platform.ui.布局重力
 import javafx.scene.layout.HBox
 import javafx.scene.layout.VBox
 

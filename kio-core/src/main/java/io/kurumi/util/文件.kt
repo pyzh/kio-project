@@ -1,9 +1,10 @@
-package io.kurumi.service
+package io.kurumi.util
 
 import cn.hutool.core.io.FileUtil
 import io.kurumi.arrayTrans
 import io.kurumi.platform.取实现
 import io.kurumi.service.abs.文件服务
+import io.kurumi.service.服务类型
 import java.io.File
 
 class 文件 private constructor(internal val _文件: File) {
@@ -36,7 +37,7 @@ class 文件 private constructor(internal val _文件: File) {
     val 去扩展名 get() = _文件.nameWithoutExtension
     val 扩展名 get() = _文件.extension
 
-    val 子文件 get() = _文件.listFiles().arrayTrans { 文件.取实例(this) }
+    val 子文件 get() = _文件.listFiles().arrayTrans { 取实例(this) }
 
     var 字节
         get() = FileUtil.readBytes(_文件)

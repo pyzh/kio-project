@@ -10,7 +10,7 @@ import io.kurumi.android.provider.FileProvider
 import io.kurumi.android.安卓应用
 import io.kurumi.android.安卓界面
 import io.kurumi.service.abs.文件服务
-import io.kurumi.service.文件
+import io.kurumi.util.文件
 
 
 object 安卓文件服务 : 文件服务 {

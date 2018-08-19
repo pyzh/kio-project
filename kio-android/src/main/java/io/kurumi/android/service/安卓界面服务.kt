@@ -2,12 +2,12 @@ package io.kurumi.android.service
 
 import android.os.Handler
 import android.os.Looper
-import io.kurumi.content.上下文
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本布局
+import io.kurumi.platform.ui.abs.基本文本
+import io.kurumi.platform.ui.abs.基本线性布局
+import io.kurumi.platform.ui.abs.基本视图
 import io.kurumi.service.abs.界面服务
-import io.kurumi.ui.abs.基本布局
-import io.kurumi.ui.abs.基本文本
-import io.kurumi.ui.abs.基本线性布局
-import io.kurumi.ui.abs.基本视图
 
 object 安卓界面服务 : 界面服务 {
 

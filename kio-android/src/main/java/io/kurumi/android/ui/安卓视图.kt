@@ -7,10 +7,10 @@ import io.kurumi.android.R
 import io.kurumi.android.安卓应用
 import io.kurumi.android.安卓界面
 import io.kurumi.android.系统服务
-import io.kurumi.content.上下文
-import io.kurumi.content.界面
-import io.kurumi.ui.abs.基本视图
-import io.kurumi.ui.view.视图
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.content.界面
+import io.kurumi.platform.ui.abs.基本视图
+import io.kurumi.platform.ui.view.视图
 
 class 安卓视图(val 上下文: 上下文, val 内容: View) : 基本视图 {
 

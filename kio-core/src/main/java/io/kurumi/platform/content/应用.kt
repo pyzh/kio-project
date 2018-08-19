@@ -1,4 +1,4 @@
-package io.kurumi.content
+package io.kurumi.platform.content
 
 interface 应用 : 上下文 {
 

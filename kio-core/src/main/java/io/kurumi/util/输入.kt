@@ -1,6 +1,5 @@
-package io.kurumi.console
+package io.kurumi.util
 
-import java.io.InputStream
 import java.util.*
 
 class 输入() {

@@ -1,6 +1,6 @@
 package io.kurumi.net
 
-import io.kurumi.console.info
+import io.kurumi.util.info
 
 
 object RconClientTest {

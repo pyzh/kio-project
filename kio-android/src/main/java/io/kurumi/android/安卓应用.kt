@@ -2,7 +2,7 @@ package io.kurumi.android
 
 import android.app.ActivityThread
 import android.app.Application
-import io.kurumi.content.应用
+import io.kurumi.platform.content.应用
 
 abstract class 安卓应用 : Application() {
 

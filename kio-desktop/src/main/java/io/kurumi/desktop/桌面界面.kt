@@ -2,12 +2,12 @@ package io.kurumi.desktop
 
 import cn.hutool.core.util.ReflectUtil
 import com.gluonhq.charm.glisten.visual.Swatch
-import io.kurumi.content.上下文
-import io.kurumi.content.应用
-import io.kurumi.content.界面
 import io.kurumi.desktop.ui.view.桌面视图
-import io.kurumi.ui.view.视图
-import io.kurumi.ui.颜色
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.content.应用
+import io.kurumi.platform.content.界面
+import io.kurumi.platform.ui.view.视图
+import io.kurumi.platform.ui.颜色
 import javafx.scene.Scene
 import javafx.stage.Screen
 import javafx.stage.Stage

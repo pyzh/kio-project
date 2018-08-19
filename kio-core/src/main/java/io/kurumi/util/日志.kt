@@ -1,6 +1,5 @@
-package io.kurumi.console
+package io.kurumi.util
 
-import io.kurumi.text.Text
 import java.util.*
 
 var 当前日志: 日志 = 日志.Default()
@@ -35,7 +34,7 @@ interface 日志 {
 
         override fun 打印(level: Level, log: Any?) {
 
-            val text = Text()
+            val text = 文本()
                     .blue("[Kurimi]")
                     .green("[${Date().toLocaleString()}]")
                     .red("[${level.name}] ")
@@ -47,7 +46,7 @@ interface 日志 {
 
         }
 
-        fun append(level: Level, text: Text, log: String): Text {
+        fun append(level: Level, text: 文本, log: String): 文本 {
 
             when (level) {
 

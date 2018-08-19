@@ -4,19 +4,19 @@ import cn.hutool.core.io.FileUtil
 import cn.hutool.core.util.ClipboardUtil
 import cn.hutool.core.util.RuntimeUtil
 import com.sun.javafx.application.PlatformImpl
-import io.kurumi.content.上下文
 import io.kurumi.desktop.ui.view.*
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本布局
+import io.kurumi.platform.ui.abs.基本文本
+import io.kurumi.platform.ui.abs.基本线性布局
+import io.kurumi.platform.ui.abs.基本视图
 import io.kurumi.platform.设备实现
 import io.kurumi.service.abs.剪切板服务
 import io.kurumi.service.abs.基本服务
 import io.kurumi.service.abs.文件服务
 import io.kurumi.service.abs.界面服务
-import io.kurumi.service.文件
 import io.kurumi.service.服务类型
-import io.kurumi.ui.abs.基本布局
-import io.kurumi.ui.abs.基本文本
-import io.kurumi.ui.abs.基本线性布局
-import io.kurumi.ui.abs.基本视图
+import io.kurumi.util.文件
 import javafx.application.Platform
 
 object 桌面实现 : 设备实现, 界面服务, 剪切板服务, 文件服务 {

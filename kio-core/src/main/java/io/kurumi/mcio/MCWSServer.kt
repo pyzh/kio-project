@@ -1,10 +1,10 @@
 package io.kurumi.mcio
 
-import io.kurumi.console.debug
-import io.kurumi.console.err
-import io.kurumi.console.info
 import io.kurumi.mcio.server.MCClient
 import io.kurumi.net.WebServer
+import io.kurumi.util.debug
+import io.kurumi.util.err
+import io.kurumi.util.info
 import org.nanohttpd.protocols.http.IHTTPSession
 import org.nanohttpd.protocols.websockets.CloseCode
 import org.nanohttpd.protocols.websockets.WebSocket

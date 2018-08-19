@@ -1,8 +1,8 @@
 package io.kurumi.desktop.ui.view
 
-import io.kurumi.content.上下文
-import io.kurumi.ui.abs.基本视图
-import io.kurumi.ui.view.视图
+import io.kurumi.platform.content.上下文
+import io.kurumi.platform.ui.abs.基本视图
+import io.kurumi.platform.ui.view.视图
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
 
@@ -25,57 +25,57 @@ open class 桌面视图(val 上下文: 上下文, open val 内容: Region = Regi
         return 内容.properties[_键值] as 内容?
     }
 
-    override var 宽度: Double
-        get() = 内容.prefWidth
+    override var 宽度: Int
+        get() = 内容.prefWidth.toInt()
         set(value) {
-            内容.maxWidth = value
+            内容.maxWidth = value.toDouble()
         }
 
-    override var 高度: Double
-        get() = 内容.prefHeight
+    override var 高度: Int
+        get() = 内容.prefHeight.toInt()
         set(value) {
-            内容.prefHeight = value
+            内容.prefHeight = value.toDouble()
         }
 
-    override var 宽高: Double
-        get() = if (宽度 == 高度) 宽度 else -1.0
+    override var 宽高: Int
+        get() = if (宽度 == 高度) 宽度 else -1
         set(value) {
             宽度 = value
             高度 = value
         }
 
-    override var 填充: Double
-        get() = 内容.padding.top
+    override var 填充: Int
+        get() = 内容.padding.top.toInt()
         set(value) {
-            内容.padding = Insets(value)
+            内容.padding = Insets(value.toDouble())
         }
 
-    override var 上填充: Double
-        get() = 内容.padding.top
+    override var 上填充: Int
+        get() = 内容.padding.top.toInt()
         set(value) {
             置填充(value, 下填充, 左填充, 右填充)
         }
 
-    override var 下填充: Double
-        get() = 内容.padding.bottom
+    override var 下填充: Int
+        get() = 内容.padding.bottom.toInt()
         set(value) {
             置填充(上填充, value, 左填充, 右填充)
         }
 
-    override var 左填充: Double
-        get() = 内容.padding.left
+    override var 左填充: Int
+        get() = 内容.padding.left.toInt()
         set(value) {
             置填充(上填充, 下填充, value, 右填充)
         }
 
-    override var 右填充: Double
-        get() = 内容.padding.right
+    override var 右填充: Int
+        get() = 内容.padding.right.toInt()
         set(value) {
             置填充(上填充, 下填充, 左填充, value)
         }
 
-    override fun 置填充(_上: Double, _下: Double, _左: Double, _右: Double) {
-        内容.padding = Insets(_上, _右, _下, _左)
+    override fun 置填充(_上: Int, _下: Int, _左: Int, _右: Int) {
+        内容.padding = Insets(_上.toDouble(), _右.toDouble(), _下.toDouble(), _左.toDouble())
     }
 
 }

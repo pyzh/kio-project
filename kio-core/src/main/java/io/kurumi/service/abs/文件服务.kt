@@ -1,6 +1,6 @@
 package io.kurumi.service.abs
 
-import io.kurumi.service.文件
+import io.kurumi.util.文件
 
 interface 文件服务 : 基本服务 {
 
