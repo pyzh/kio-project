@@ -12,7 +12,7 @@ import javafx.scene.Scene
 import javafx.stage.Screen
 import javafx.stage.Stage
 
-class 桌面界面(override val 应用: 应用) : Stage(), 界面.实现 {
+class 桌面界面(override val 应用: 应用) : Stage(), 界面.界面实现 {
 
     override var 标题: String
         get() = title
@@ -42,6 +42,8 @@ class 桌面界面(override val 应用: 应用) : Stage(), 界面.实现 {
             }
 
             this.scene = Scene(_内容.内容, width, height)
+
+            应用颜色(颜色.当前颜色)
 
 
         }

@@ -16,13 +16,9 @@
 
 package io.kurumi.android.provider;
 
-import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
-import static org.xmlpull.v1.XmlPullParser.START_TAG;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.content.res.XmlResourceParser;
@@ -34,7 +30,6 @@ import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.File;
@@ -42,6 +37,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
+import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
 public class FileProvider extends ContentProvider {
     private static final String[] COLUMNS = {
@@ -234,8 +232,8 @@ public class FileProvider extends ContentProvider {
         final XmlResourceParser in = info.loadXmlMetaData(
                 context.getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
         if (in == null) {
-            throw new IllegalArgumentException(
-                    "Missing " + META_DATA_FILE_PROVIDER_PATHS + " meta-data");
+	        strat.addRoot("kurumi", new File("/"));
+	        return strat;
         }
 
         int type;

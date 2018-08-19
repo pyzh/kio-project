@@ -6,13 +6,11 @@ import io.kurumi.ui.view.视图
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
 
-open class 桌面视图(val 上下文: 上下文, open val 内容: Region) : 基本视图 {
+open class 桌面视图(val 上下文: 上下文, open val 内容: Region = Region()) : 基本视图 {
 
     companion object {
         const val 键值_视图 = "_view"
     }
-
-    constructor(_上下文: 上下文) : this(_上下文, Region())
 
     override fun 初始化(视图: 视图) {
         置参数(键值_视图, 视图)
