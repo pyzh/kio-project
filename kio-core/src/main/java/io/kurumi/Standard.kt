@@ -22,12 +22,29 @@ inline fun <T : Any> T?.ifNull(_exec: T?.() -> T): T {
 
 }
 
+inline fun String?.append(str: String): String? {
 
-inline fun <T : Any> T.finally(_exec: T?.() -> Unit): T {
+    return if (this != null) {
+        "$this$str"
+    } else null
+
+}
+
+inline fun <T : Any?> T.finally(_exec: T.() -> Unit): T {
 
     _exec.invoke(this)
 
     return this
+
+}
+
+inline fun <reified Ex : Exception> (() -> Any?).catch(_exec: (Ex) -> Unit) {
+
+    try {
+        invoke()
+    } catch (ex: Exception) {
+        _exec.invoke(ex as Ex)
+    }
 
 }
 

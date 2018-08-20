@@ -2,7 +2,7 @@ package io.kurumi.desktop.service
 
 import cn.hutool.core.io.FileUtil
 import cn.hutool.core.util.RuntimeUtil
-import io.kurumi.service.abs.文件服务
+import io.kurumi.service.文件服务
 import io.kurumi.util.文件
 
 object 桌面文件服务 : 文件服务 {
@@ -18,8 +18,8 @@ object 桌面文件服务 : 文件服务 {
         _回调.invoke(文件.取实例(_地址), true)
     }
 
-    override fun 文件.打开() {
-        RuntimeUtil.exec("rundll32 url.dll file://${this.地址}")
+    override fun 打开(_文件: 文件) {
+        RuntimeUtil.exec("rundll32.exe url.dll,FileProtocolHandler file://${_文件.地址}")
     }
 
 }

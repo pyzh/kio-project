@@ -6,9 +6,13 @@ ext.mvn_name = "Kio Desktop Impl"
 
 apply from : "../mvn.gradle"
 
+repositories {
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
 dependencies {
 
-    compile "com.gluonhq:charm-glisten:5.0.0"
+    compile 'com.jfoenix:jfoenix:8.0.5'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile project(":kio-core")
 

@@ -1,5 +1,7 @@
 package io.kurumi.util
 
+import io.kurumi.service.实现
+import io.kurumi.service.界面服务
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
@@ -27,4 +29,8 @@ fun 线程(_执行: () -> Unit) {
 
     Thread(_执行).start()
 
+}
+
+fun 主线程(_执行: () -> Unit) {
+    界面服务::class.实现.主线程处理(_执行)
 }

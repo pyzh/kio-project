@@ -1,6 +1,6 @@
 package io.kurumi.net
 
-import io.kurumi.util.info
+import io.kurumi.util.提示
 
 
 object RconClientTest {
@@ -11,9 +11,9 @@ object RconClientTest {
         val client = RconClient("61.147.247.137", 10034, "zMDliY2U4N")
 
         if (client.connect()) {
-            info(client.exec("list"))
+            提示(client.exec("list"))
         } else {
-            info("connect failed")
+            提示("connect failed")
         }
     }
 

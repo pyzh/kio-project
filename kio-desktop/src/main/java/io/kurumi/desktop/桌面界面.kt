@@ -1,7 +1,8 @@
 package io.kurumi.desktop
 
 import cn.hutool.core.util.ReflectUtil
-import com.gluonhq.charm.glisten.visual.Swatch
+import com.jfoenix.controls.JFXDecorator
+import io.kurumi.append
 import io.kurumi.desktop.ui.view.桌面视图
 import io.kurumi.platform.content.上下文
 import io.kurumi.platform.content.应用
@@ -9,15 +10,38 @@ import io.kurumi.platform.content.界面
 import io.kurumi.platform.ui.view.视图
 import io.kurumi.platform.ui.颜色
 import javafx.scene.Scene
+import javafx.scene.layout.VBox
 import javafx.stage.Screen
 import javafx.stage.Stage
 
 class 桌面界面(override val 应用: 应用) : Stage(), 界面.界面实现 {
 
+    val content = VBox()
+    val root = JFXDecorator(this, content)
+
+    init {
+        root.styleClass.add(颜色.当前颜色.取基本深色())
+
+        var width = 800.0
+        var height = 600.0
+        try {
+            val bounds = Screen.getScreens()[0].bounds
+            width = bounds.width / 2.5
+            height = bounds.height / 1.35
+        } catch (ignored: Exception) {
+        }
+
+        this.scene = Scene(content, width, height)
+        scene.stylesheets.addAll(
+                this::class.java.getResource("/css/jfoenix-fonts.css").toExternalForm(),
+                this::class.java.getResource("/css/jfoenix-design.css").toExternalForm()
+        )
+    }
+
     override var 标题: String
-        get() = title
+        get() = root.title
         set(value) {
-            title = value
+            root.title = value
         }
 
     override var 内容: 视图?
@@ -32,55 +56,52 @@ class 桌面界面(override val 应用: 应用) : Stage(), 界面.界面实现 {
 
             val _内容 = value.实现 as 桌面视图
 
-            var width = 800.0
-            var height = 600.0
-            try {
-                val bounds = Screen.getScreens()[0].bounds
-                width = bounds.width / 2.5
-                height = bounds.height / 1.35
-            } catch (ignored: Exception) {
-            }
-
-            this.scene = Scene(_内容.内容, width, height)
-
-            应用颜色(颜色.当前颜色)
-
+            content.children.removeAll()
+            content.children.add(_内容.内容)
 
         }
 
-    val isJavaFxThemeAvailable by lazy {
-        try {
-            Swatch.getDefault()
-            true
-        } catch (ex: NoClassDefFoundError) {
-            false
+    fun 颜色.取颜色名(): String? {
+        return when (this) {
+            颜色.红色 -> "red"
+            颜色.粉色 -> "pink"
+            颜色.紫色 -> "purple"
+            颜色.深紫 -> "deep-purple"
+            颜色.靛蓝 -> "indigo"
+            颜色.蓝色 -> "blue"
+            颜色.亮蓝 -> "light-blue"
+            颜色.青色 -> "cyan"
+            颜色.鸭绿 -> "real"
+            颜色.绿色 -> "green"
+            颜色.亮绿 -> "light-green"
+            颜色.酸橙 -> "lime"
+            颜色.黄色 -> "yellow"
+            颜色.琥珀 -> "amber"
+            颜色.橙色 -> "orange"
+            颜色.暗橙 -> "deep-orange"
+            颜色.棕色 -> "brown"
+            颜色.灰色 -> "green"
+            颜色.蓝灰 -> "blue-green"
+            else -> null
         }
     }
 
+    fun 颜色.取基本色(): String? {
+        return 取颜色名().append("-500")
+    }
+
+    fun 颜色.取基本深色(): String? {
+        return 取颜色名().append("-700")
+    }
+
+    fun 颜色.取控件色(): String? {
+        return 取颜色名().append(when (this) {
+            颜色.棕色, 颜色.灰色, 颜色.蓝灰 -> "-500"
+            else -> "-A200"
+        })
+    }
+
     override fun 应用颜色(_颜色: 颜色) {
-        if (!isJavaFxThemeAvailable) return
-        when (_颜色) {
-            颜色.红色 -> Swatch.RED
-            颜色.粉色 -> Swatch.PINK
-            颜色.紫色 -> Swatch.PURPLE
-            颜色.深紫 -> Swatch.DEEP_PURPLE
-            颜色.靛蓝 -> Swatch.INDIGO
-            颜色.蓝色 -> Swatch.BLUE
-            颜色.亮蓝 -> Swatch.LIGHT_BLUE
-            颜色.青色 -> Swatch.CYAN
-            颜色.鸭绿 -> Swatch.TEAL
-            颜色.绿色 -> Swatch.GREEN
-            颜色.亮绿 -> Swatch.LIGHT_GREEN
-            颜色.酸橙 -> Swatch.LIME
-            颜色.黄色 -> Swatch.YELLOW
-            颜色.琥珀 -> Swatch.AMBER
-            颜色.橙色 -> Swatch.ORANGE
-            颜色.暗橙 -> Swatch.DEEP_ORANGE
-            颜色.棕色 -> Swatch.BROWN
-            颜色.灰色 -> Swatch.GREEN
-            颜色.蓝灰 -> Swatch.BLUE_GREY
-            else -> null
-        }?.assignTo(scene)
     }
 
     override fun 关闭() {

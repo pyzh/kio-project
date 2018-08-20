@@ -35,4 +35,7 @@ abstract class 桌面线性布局 : 桌面布局, 基本线性布局 {
             }
         }
 
+    open class 垂直(_上下文: 上下文, override val 内容: VBox = VBox()) : 桌面线性布局(_上下文, 内容), 基本线性布局.垂直
+    open class 水平(_上下文: 上下文, override val 内容: HBox = HBox()) : 桌面线性布局(_上下文, 内容), 基本线性布局.水平
+
 }

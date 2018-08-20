@@ -8,7 +8,7 @@ import io.kurumi.mcio.cmd.content.header.CmdMessage
 import io.kurumi.mcio.cmd.resp.prop.EventInfo
 import io.kurumi.mcio.cmd.resp.prop.PlayerMessageInfo
 import io.kurumi.mcio.server.MCClient
-import io.kurumi.util.info
+import io.kurumi.util.提示
 
 class MCEventManager(val client: MCClient) {
 
@@ -28,7 +28,7 @@ class MCEventManager(val client: MCClient) {
 
     fun onMessage(message: String) {
 
-        info(message)
+        提示(message)
 
         val obj = JSONObject(message)
 

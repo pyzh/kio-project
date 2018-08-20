@@ -7,7 +7,7 @@ import io.kurumi.mcio.cmd.content.header.CmdMessage
 import io.kurumi.mcio.event.EventType
 import io.kurumi.mcio.server.MCClient
 import io.kurumi.mcio.type.Entry
-import io.kurumi.util.debug
+import io.kurumi.util.日志
 import java.util.*
 import kotlin.collections.LinkedHashMap
 
@@ -47,7 +47,7 @@ class CmdManager(val client: MCClient) {
 
         val json = "$cmd"
 
-        debug("sended : $json")
+        日志("sended : $json")
 
         client.socket.send(json)
 
@@ -74,7 +74,7 @@ class CmdManager(val client: MCClient) {
 
         val json = "$cmd"
 
-        debug("event subscribed : ${event}")
+        日志("event subscribed : ${event}")
 
         client.socket.send(json)
 
@@ -97,7 +97,7 @@ class CmdManager(val client: MCClient) {
 
         val json = "$cmd"
 
-        debug("event unsubscribed : ${event}")
+        日志("event unsubscribed : ${event}")
 
         client.socket.send(json)
 

@@ -1,4 +1,4 @@
-package io.kurumi.service.abs
+package io.kurumi.service
 
 import io.kurumi.platform.content.上下文
 import io.kurumi.platform.content.界面
@@ -9,7 +9,7 @@ import io.kurumi.platform.ui.abs.基本视图
 
 interface 界面服务 : 基本服务 {
 
-    fun 主线程处理(_上下文: 上下文, _执行: () -> Unit)
+    fun 主线程处理(_执行: () -> Unit)
     fun 启动界面(_上下文: 上下文, _界面: Class<out 界面>)
 
     fun 新视图实现(_上下文: 上下文): 基本视图

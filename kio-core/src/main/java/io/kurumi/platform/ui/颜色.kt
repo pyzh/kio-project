@@ -1,28 +1,31 @@
 package io.kurumi.platform.ui
 
 import io.kurumi.platform.content.界面
+import java.math.BigInteger
+import java.util.*
+import kotlin.experimental.and
 
-class 颜色 constructor(_颜色: Array<String>, _基本颜色键值: Int, _基本深色键值: Int, _强调色键值: Int,val 应用器 :(颜色.(界面) -> Unit)? = null) {
+class 颜色 constructor(_颜色: Array<String>, _基本颜色键值: Int, _基本深色键值: Int, _强调色键值: Int, val 应用器: (颜色.(界面) -> Unit)? = null) {
 
-    private val 基本: String
-    private val 深色: String
-    private val 控件: String
+    val 基本: Int
+    val 深色: Int
+    val 控件: Int
 
     init {
-        基本 = _颜色[_基本颜色键值]
-        深色 = _颜色[_基本深色键值]
-        控件 = _颜色[_强调色键值]
+        基本 = _颜色[_基本颜色键值].toIntColor()
+        深色 = _颜色[_基本深色键值].toIntColor()
+        控件 = _颜色[_强调色键值].toIntColor()
     }
 
     companion object {
 
-        val 白色 = "#FFFFFF"
-        val 白烟 = "#EBEBEB"
-        val 黑色 = "#de000000"
-        val 透明 = "#00000000"
-        val 半透明 = "#10000000"
-        val 白透明 = "#e6eaf7"
-        val 黑透明 = "#202020"
+        val 白色 = "#FFFFFF".toIntColor()
+        val 白烟 = "#EBEBEB".toIntColor()
+        val 黑色 = "#de000000".toIntColor()
+        val 透明 = "#00000000".toIntColor()
+        val 半透明 = "#10000000".toIntColor()
+        val 白透明 = "#e6eaf7".toIntColor()
+        val 黑透明 = "#202020".toIntColor()
 
         val 红色 = 颜色(arrayOf("#FFEBEE", "#FFCDD2", "#EF9A9A", "#E57373", "#EF5350", "#F44336", "#E53935", "#D32F2F", "#C62828", "#B71C1C", "#FF8A80", "#FF5252", "#FF1744", "#D50000"), 5, 7, 11)
         val 粉色 = 颜色(arrayOf("#FCE4EC", "#F8BBD0", "#F48FB1", "#F06292", "#EC407A", "#E91E63", "#D81B60", "#C2185B", "#AD1457", "#880E4F", "#FF80AB", "#FF4081", "#F50057", "#C51162"), 5, 7, 11)
@@ -46,6 +49,148 @@ class 颜色 constructor(_颜色: Array<String>, _基本颜色键值: Int, _基�
 
         var 当前颜色 = 靛蓝
 
+
+    }
+}
+
+private var sColorNameMap = HashMap<String, Int>()
+
+fun String.toIntColor(): Int {
+    if (get(0) == '#') {
+        // Use a long to avoid rollovers on #ffXXXXXX
+        var color = java.lang.Long.parseLong(substring(1), 16)
+        if (length == 7) {
+            // Set the alpha value
+            color = color or -0x1000000
+        } else if (length != 9) {
+            throw IllegalArgumentException("Unknown color")
+        }
+        return color.toInt()
+    } else {
+        val color = sColorNameMap.get(toLowerCase(Locale.ROOT))
+        if (color != null) {
+            return color
+        }
+    }
+    throw IllegalArgumentException("Unknown color")
+}
+
+/**
+ * Returns the red component encoded in the specified color long.
+ * The range of the returned value depends on the color space
+ * associated with the specified color. The color space can be
+ * queried by calling [.colorSpace].
+ *
+ * @param color The color long whose red channel to extract
+ * @return A float value with a range defined by the specified color's
+ * color space
+ *
+ * @see .colorSpace
+ * @see .green
+ * @see .blue
+ * @see .alpha
+ */
+fun red(color: Long): Float {
+    return if (color and 0x3fL == 0L) (color shr 48 and 0xff) / 255.0f else toHFloat((color shr 48 and 0xffff).toShort())
+}
+
+/**
+ * Returns the green component encoded in the specified color long.
+ * The range of the returned value depends on the color space
+ * associated with the specified color. The color space can be
+ * queried by calling [.colorSpace].
+ *
+ * @param color The color long whose green channel to extract
+ * @return A float value with a range defined by the specified color's
+ * color space
+ *
+ * @see .colorSpace
+ * @see .red
+ * @see .blue
+ * @see .alpha
+ */
+fun green(color: Long): Float {
+    return if (color and 0x3fL == 0L) (color shr 40 and 0xff) / 255.0f else toHFloat((color shr 32 and 0xffff).toShort())
+}
+
+/**
+ * Returns the blue component encoded in the specified color long.
+ * The range of the returned value depends on the color space
+ * associated with the specified color. The color space can be
+ * queried by calling [.colorSpace].
+ *
+ * @param color The color long whose blue channel to extract
+ * @return A float value with a range defined by the specified color's
+ * color space
+ *
+ * @see .colorSpace
+ * @see .red
+ * @see .green
+ * @see .alpha
+ */
+fun blue(color: Long): Float {
+    return if (color and 0x3fL == 0L) (color shr 32 and 0xff) / 255.0f else toHFloat((color shr 16 and 0xffff).toShort())
+}
+
+/**
+ * Returns the alpha component encoded in the specified color long.
+ * The returned value is always in the range \([0..1]\).
+ *
+ * @param color The color long whose blue channel to extract
+ * @return A float value in the range \([0..1]\)
+ *
+ * @see .colorSpace
+ * @see .red
+ * @see .green
+ * @see .blue
+ */
+fun alpha(color: Long): Float {
+    return if (color and 0x3fL == 0L) (color shr 56 and 0xff) / 255.0f else (color shr 6 and 0x3ff) / 1023.0f
+}
+
+private val FP16_SIGN_SHIFT = 15
+private val FP16_SIGN_MASK = 0x8000
+private val FP16_EXPONENT_SHIFT = 10
+private val FP16_EXPONENT_MASK = 0x1f
+private val FP16_SIGNIFICAND_MASK = 0x3ff
+private val FP16_EXPONENT_BIAS = 15
+private val FP16_COMBINED = 0x7fff
+private val FP16_EXPONENT_MAX = 0x7c00
+
+private val FP32_SIGN_SHIFT = 31
+private val FP32_EXPONENT_SHIFT = 23
+private val FP32_EXPONENT_MASK = 0xff
+private val FP32_SIGNIFICAND_MASK = 0x7fffff
+private val FP32_EXPONENT_BIAS = 127
+
+private val FP32_DENORMAL_MAGIC = 126 shl 23
+private val FP32_DENORMAL_FLOAT = java.lang.Float.intBitsToFloat(FP32_DENORMAL_MAGIC)
+
+fun toHFloat(h: Short): Float {
+    val bits = h and 0xffff.toShort()
+    val s = bits and FP16_SIGN_MASK.toShort()
+    val e = bits.toLong().ushr(FP16_EXPONENT_SHIFT) and FP16_EXPONENT_MASK.toLong()
+    val m = bits and FP16_SIGNIFICAND_MASK.toShort()
+
+    var outE: Long = 0
+    var outM: Long = 0
+
+    if (e.toInt() == 0) { // Denormal or 0
+        if (m.toInt() != 0) {
+            // Convert denorm fp16 into normalized fp32
+            var o = java.lang.Float.intBitsToFloat(FP32_DENORMAL_MAGIC + m)
+            o -= FP32_DENORMAL_FLOAT
+            return if (s.toInt() == 0) o else -o
+        }
+    } else {
+        outM = (BigInteger.valueOf(m.toLong()) shl 13).toLong()
+        if (e.toInt() == 0x1f) { // Infinite or NaN
+            outE = 0xff
+        } else {
+            outE = (e - FP16_EXPONENT_BIAS + FP32_EXPONENT_BIAS)
+        }
     }
 
+    val out = s.toLong() shl 16 or (outE shl FP32_EXPONENT_SHIFT) or outM
+    return java.lang.Float.intBitsToFloat(out.toInt())
 }

@@ -6,6 +6,8 @@ import android.os.Handler
 import android.os.Looper
 import io.kurumi.android.app.KurumiActivity
 import io.kurumi.android.ui.安卓布局
+import io.kurumi.android.ui.安卓文本视图
+import io.kurumi.android.ui.安卓线性布局
 import io.kurumi.android.ui.安卓视图
 import io.kurumi.android.安卓应用
 import io.kurumi.android.安卓界面
@@ -15,14 +17,18 @@ import io.kurumi.platform.ui.abs.基本布局
 import io.kurumi.platform.ui.abs.基本文本
 import io.kurumi.platform.ui.abs.基本线性布局
 import io.kurumi.platform.ui.abs.基本视图
-import io.kurumi.service.abs.界面服务
+import io.kurumi.service.界面服务
 
 object 安卓界面服务 : 界面服务 {
 
     val mainHandler = Handler(Looper.getMainLooper())
 
-    override fun 主线程处理(_上下文: 上下文, _执行: () -> Unit) {
-        mainHandler.post(_执行)
+    override fun 主线程处理(_执行: () -> Unit) {
+        if (Thread.currentThread() == Looper.getMainLooper().thread) {
+            _执行.invoke()
+        } else {
+            mainHandler.post(_执行)
+        }
     }
 
     fun 取安卓上下文(_上下文: 上下文): Context {
@@ -49,14 +55,14 @@ object 安卓界面服务 : 界面服务 {
     }
 
     override fun 新垂直布局(_上下文: 上下文): 基本线性布局.垂直 {
-        TODO()
+        return 安卓线性布局.垂直(_上下文)
     }
 
     override fun 新水平布局(_上下文: 上下文): 基本线性布局.水平 {
-        TODO()
+        return 安卓线性布局.水平(_上下文)
     }
 
     override fun 新文本视图实现(_上下文: 上下文): 基本文本 {
-        TODO()
+        return 安卓文本视图(_上下文)
     }
 }

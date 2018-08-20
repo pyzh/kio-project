@@ -5,7 +5,12 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import io.kurumi.android.app.KurumiActivity
+import io.kurumi.android.ui.取视图
+import io.kurumi.android.ui.安卓视图
+import io.kurumi.finally
 import io.kurumi.ifNotNull
 import io.kurumi.platform.content.应用
 import io.kurumi.platform.content.界面
@@ -18,9 +23,18 @@ open class 安卓界面 : Activity(), 界面.界面实现 {
     @SuppressLint("UseSparseArrays")
     val 权限监听器 = HashMap<Int, (HashMap<String, Boolean>) -> Unit>()
 
+    val root by lazy {
+        LinearLayout(this@安卓界面).finally {
+            layoutParams = ViewGroup.LayoutParams(-1, -1)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         应用颜色(颜色.当前颜色)
+        @Suppress("DEPRECATION")
+        titleColor = 0xFFFFF
+        setContentView(root)
     }
 
     override fun 关闭() {
@@ -36,9 +50,16 @@ open class 安卓界面 : Activity(), 界面.界面实现 {
             title = value
         }
 
+
     override var 内容: 视图?
-        get() = TODO()
-        set(value) {}
+        get() = root.取视图()
+        set(value) {
+            requireNotNull(value, { "view obj must bnot be null" })
+            root.setTag(R.id._kio_view_obj, value)
+            if (value?.实现 !is 安卓视图) error("无效的视图 : $value")
+            root.removeAllViews()
+            root.addView((value.实现 as 安卓视图).内容, ViewGroup.LayoutParams(-1, -1))
+        }
 
     override fun 应用颜色(_颜色: 颜色) {
 
@@ -92,5 +113,6 @@ open class 安卓界面 : Activity(), 界面.界面实现 {
         startActivity(_意图)
 
     }
+
 
 }

@@ -1,55 +1,96 @@
 package io.kurumi.android
 
-import android.view.Gravity
+import android.annotation.SuppressLint
+import android.view.Gravity.*
 import io.kurumi.platform.ui.布局重力
+import io.kurumi.platform.ui.布局重力.*
 
 object 安卓布局重力 {
 
+    @SuppressLint("RtlHardcoded")
     fun 到重力(_重力: Int): 布局重力 {
-        if (_重力 xor Gravity.START != 0) {
-            if (_重力 xor Gravity.CENTER != 0) {
-                return 布局重力.左中
-            } else if (_重力 xor Gravity.BOTTOM != 0) {
-                return 布局重力.左下
-            } else {
-                return 布局重力.左上
-            }
 
-        } else if (_重力 xor Gravity.END != 0) {
-            if (_重力 xor Gravity.CENTER != 0) {
-                return 布局重力.右中
-            } else if (_重力 xor Gravity.BOTTOM != 0) {
-                return 布局重力.右下
-            } else {
-                return 布局重力.右上
-            }
+        var center = false
+        var left = false
+        var right = false
+
+        var top = false
+        var bottom = false
+
+        if (_重力 and FILL == FILL) {
+
         } else {
-            if (_重力 xor Gravity.TOP != 0) {
-                return 布局重力.中上
-            } else if (_重力 xor Gravity.BOTTOM != 0) {
-                return 布局重力.中下
+            if (_重力 and FILL_VERTICAL == FILL_VERTICAL) {
             } else {
-                return 布局重力.中间
+                if (_重力 and TOP == TOP) {
+                    top = true
+                }
+                if (_重力 and BOTTOM == BOTTOM) {
+                    bottom = true
+                }
             }
+            if (_重力 and FILL_HORIZONTAL == FILL_HORIZONTAL) {
+            } else {
+                if (_重力 and START == START) {
+                    left = true
+                } else if (_重力 and LEFT == LEFT) {
+                    left = true
+                }
+                if (_重力 and END == END) {
+                    right = true
+                } else if (_重力 and RIGHT == RIGHT) {
+                    right = true
+                }
+            }
+        }
+        if (_重力 and CENTER == CENTER) {
+            center = true
+        } else {
+            if (_重力 and CENTER_VERTICAL == CENTER_VERTICAL) {
+                center = true
+                left = true
+            }
+            if (_重力 and CENTER_HORIZONTAL == CENTER_HORIZONTAL) {
+                center = true
+                top = true
+            }
+        }
+
+        return if (left) {
+            if (center) 左中
+            else if (bottom) 左下
+            else 左上
+        } else if (right) {
+            if (center) 右中
+            else if (bottom) 右下
+            else 右上
+
+        } else if (center) {
+            if (center) 中间
+            else if (bottom) 中下
+            else 中上
+        } else {
+            if (bottom) 左下
+            左上
         }
 
     }
 
-    fun 布局重力.到重力(): Int {
+    fun 到重力(_重力: 布局重力): Int {
 
-        when (this) {
+        when (_重力) {
 
-            布局重力.左上 -> return Gravity.START and Gravity.TOP
-            布局重力.左中 -> return Gravity.START and Gravity.CENTER
-            布局重力.左下 -> return Gravity.START and Gravity.BOTTOM
+            左上 -> return START or TOP
+            左中 -> return START or CENTER
+            左下 -> return START or BOTTOM
 
-            布局重力.中上 -> return Gravity.CENTER and Gravity.TOP
-            布局重力.中间 -> return Gravity.CENTER
-            布局重力.中下 -> return Gravity.CENTER and Gravity.BOTTOM
+            中上 -> return CENTER or TOP
+            中间 -> return CENTER
+            中下 -> return CENTER or BOTTOM
 
-            布局重力.右上 -> return Gravity.END and Gravity.TOP
-            布局重力.右中 -> return Gravity.END and Gravity.CENTER
-            布局重力.右下 -> return Gravity.END and Gravity.BOTTOM
+            右上 -> return END or TOP
+            右中 -> return END or CENTER
+            右下 -> return END or BOTTOM
 
         }
 

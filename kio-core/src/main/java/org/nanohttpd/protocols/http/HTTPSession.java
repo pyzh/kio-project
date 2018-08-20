@@ -125,7 +125,8 @@ public class HTTPSession implements IHTTPSession {
 
             StringTokenizer st = new StringTokenizer(inLine);
             if (!st.hasMoreTokens()) {
-                throw new ResponseException(Status.BAD_REQUEST, "BAD REQUEST: Syntax err. Usage: GET /example/file.html");
+	            throw new ResponseException(Status.BAD_REQUEST, "BAD REQUEST: Syntax 错误. Usage: GET /example/file" +
+			            ".html");
             }
 
             pre.put("method", st.nextToken());
@@ -385,7 +386,8 @@ public class HTTPSession implements IHTTPSession {
 
             this.method = Method.lookup(pre.get("method"));
             if (this.method == null) {
-                throw new ResponseException(Status.BAD_REQUEST, "BAD REQUEST: Syntax err. HTTP verb " + pre.get("method") + " unhandled.");
+	            throw new ResponseException(Status.BAD_REQUEST, "BAD REQUEST: Syntax 错误. HTTP verb " + pre.get("method"
+	            ) + " unhandled.");
             }
 
             this.uri = pre.get("uri");
@@ -562,7 +564,7 @@ public class HTTPSession implements IHTTPSession {
             ITempFile tempFile = this.tempFileManager.createTempFile(null);
             return new RandomAccessFile(tempFile.getName(), "rw");
         } catch (Exception e) {
-            throw new Error(e); // we won't recover, so throw an err
+	        throw new Error(e); // we won't recover, so throw an 错误
         }
     }
 
@@ -668,7 +670,7 @@ public class HTTPSession implements IHTTPSession {
                 dest.write(src.slice());
                 path = tempFile.getName();
             } catch (Exception e) { // Catch exception if any
-                throw new Error(e); // we won't recover, so throw an err
+	            throw new Error(e); // we won't recover, so throw an 错误
             } finally {
                 NanoHTTPD.safeClose(fileOutputStream);
             }

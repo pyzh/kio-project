@@ -1,4 +1,4 @@
-package io.kurumi.service.abs
+package io.kurumi.service
 
 interface 剪切板服务 : 基本服务 {
 

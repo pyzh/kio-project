@@ -12,10 +12,7 @@ dependencies {
     compile("cn.hutool:hutool-core:${hutool_version}")
     compile("cn.hutool:hutool-http:${hutool_version}")
     compile("cn.hutool:hutool-json:${hutool_version}")
-
-//    compile 'com.jfoenix:jfoenix:8.0.5'
-
-    compile("org.fusesource.jansi:jansi:1.17.1")
+ //   compile("org.fusesource.jansi:jansi:1.17.1")
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 

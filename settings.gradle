@@ -1,3 +1,4 @@
+include ':kio-androidtest'
 rootProject.name = 'kio'
 include 'kio-core'
 include 'kio-desktop'

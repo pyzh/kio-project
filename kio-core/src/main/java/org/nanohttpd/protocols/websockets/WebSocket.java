@@ -33,6 +33,10 @@ package org.nanohttpd.protocols.websockets;
  * #L%
  */
 
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.response.Response;
+import org.nanohttpd.protocols.http.response.Status;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -40,10 +44,6 @@ import java.nio.charset.CharacterCodingException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
-
-import org.nanohttpd.protocols.http.IHTTPSession;
-import org.nanohttpd.protocols.http.response.Response;
-import org.nanohttpd.protocols.http.response.Status;
 
 public abstract class WebSocket {
 
@@ -98,7 +98,7 @@ public abstract class WebSocket {
     protected abstract void onException(IOException exception);
 
     /**
-     * Debug method. <b>Do not Override unless for debug purposes!</b>
+     * Debug method. <b>Do not Override unless for 日志 purposes!</b>
      * 
      * @param frame
      *            The received WebSocket Frame.
@@ -107,7 +107,7 @@ public abstract class WebSocket {
     }
 
     /**
-     * Debug method. <b>Do not Override unless for debug purposes!</b><br>
+     * Debug method. <b>Do not Override unless for 日志 purposes!</b><br>
      * This method is called before actually sending the frame.
      * 
      * @param frame

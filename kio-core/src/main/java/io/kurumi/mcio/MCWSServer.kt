@@ -2,9 +2,9 @@ package io.kurumi.mcio
 
 import io.kurumi.mcio.server.MCClient
 import io.kurumi.net.WebServer
-import io.kurumi.util.debug
-import io.kurumi.util.err
-import io.kurumi.util.info
+import io.kurumi.util.提示
+import io.kurumi.util.日志
+import io.kurumi.util.错误
 import org.nanohttpd.protocols.http.IHTTPSession
 import org.nanohttpd.protocols.websockets.CloseCode
 import org.nanohttpd.protocols.websockets.WebSocket
@@ -21,7 +21,7 @@ open class MCWSServer : WebServer {
 
     override fun onWebSocketOpen(socket: WebSocket, handshake: IHTTPSession) {
 
-        info("mc client connected from ${socket.handshakeRequest.remoteIpAddress}")
+        提示("mc client connected from ${socket.handshakeRequest.remoteIpAddress}")
 
         val client = MCClient(this, socket, plugins)
 
@@ -37,14 +37,14 @@ open class MCWSServer : WebServer {
 
     override fun onWebSocketMessage(socket: WebSocket, msg: String) {
 
-        debug("received event : $msg")
+        日志("received event : $msg")
 
         clients.get(socket)?.eventManager?.onMessage(msg)
     }
 
     override fun onWebSocketClose(socket: WebSocket, code: CloseCode, reason: String) {
 
-        info("mc client desconnected because $reason")
+        提示("mc client desconnected because $reason")
 
         val client = clients.remove(socket)
 
@@ -57,7 +57,7 @@ open class MCWSServer : WebServer {
 
     override fun onWebSocketException(socket: WebSocket, ex: IOException) {
 
-        err("socket printError : \n$ex")
+        错误("socket printError : \n$ex")
 
     }
 

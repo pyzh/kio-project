@@ -33,32 +33,6 @@ package org.nanohttpd.protocols.http;
  * #L%
  */
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.security.KeyStore;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-
-import javax.net.ssl.KeyManager;
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLServerSocketFactory;
-import javax.net.ssl.TrustManagerFactory;
-
 import org.nanohttpd.protocols.http.response.Response;
 import org.nanohttpd.protocols.http.response.Status;
 import org.nanohttpd.protocols.http.sockets.DefaultServerSocketFactory;
@@ -70,6 +44,21 @@ import org.nanohttpd.protocols.http.threading.IAsyncRunner;
 import org.nanohttpd.util.IFactory;
 import org.nanohttpd.util.IFactoryThrowing;
 import org.nanohttpd.util.IHandler;
+
+import javax.net.ssl.*;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.security.KeyStore;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 /**
  * A simple, tiny, nicely embeddable HTTP server in Java
@@ -539,7 +528,7 @@ public abstract class NanoHTTPD {
      * Override this to customize the server.
      * <p/>
      * <p/>
-     * (By default, this returns a 404 "Not Found" plain text err response.)
+     * (By default, this returns a 404 "Not Found" plain text 错误 response.)
      * 
      * @param session
      *            The HTTP session
