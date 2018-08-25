@@ -8,14 +8,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import io.kurumi.android.app.KurumiActivity
-import io.kurumi.android.ui.取视图
 import io.kurumi.android.ui.安卓视图
-import io.kurumi.finally
-import io.kurumi.ifNotNull
-import io.kurumi.platform.content.应用
-import io.kurumi.platform.content.界面
-import io.kurumi.platform.ui.view.视图
-import io.kurumi.platform.ui.颜色
 import java.util.*
 
 open class 安卓界面 : Activity(), 界面.界面实现 {
@@ -35,6 +28,7 @@ open class 安卓界面 : Activity(), 界面.界面实现 {
         @Suppress("DEPRECATION")
         titleColor = 0xFFFFF
         setContentView(root)
+        提示("r :$root")
     }
 
     override fun 关闭() {

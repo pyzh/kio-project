@@ -1,10 +1,12 @@
 package io.kurumi.desktop.ui.view
 
-import io.kurumi.platform.content.上下文
-import io.kurumi.platform.ui.abs.基本视图
-import io.kurumi.platform.ui.view.视图
+import javafx.event.EventHandler
 import javafx.geometry.Insets
+import javafx.scene.input.MouseButton
+import javafx.scene.layout.Background
+import javafx.scene.layout.BackgroundFill
 import javafx.scene.layout.Region
+import javafx.scene.paint.Color
 
 open class 桌面视图(val 上下文: 上下文, open val 内容: Region = Region()) : 基本视图 {
 
@@ -12,8 +14,8 @@ open class 桌面视图(val 上下文: 上下文, open val 内容: Region = Regi
         const val 键值_视图 = "_view"
     }
 
-    override fun 初始化(视图: 视图) {
-        置参数(键值_视图, 视图)
+    override fun 初始化(_视图: 视图) {
+        置参数(键值_视图, _视图)
     }
 
     fun 置参数(_键值: String, _内容: Any) {
@@ -83,4 +85,34 @@ open class 桌面视图(val 上下文: 上下文, open val 内容: Region = Regi
         set(value) {
             内容.isVisible = value
         }
+
+    override var 背景颜色: Int
+        get() = -1
+        set(value) {
+            内容.background = Background(BackgroundFill(value.toColor(), null, null))
+        }
+
+    override var 阴影: Int
+        get() = 内容.translateZ.toInt()
+        set(value) {
+            内容.translateZ = value.toDouble()
+        }
+
+    init {
+        内容.onMouseClicked = EventHandler {
+            when (it) {
+                MouseButton.PRIMARY -> 单击事件()
+                MouseButton.SECONDARY -> 附加事件()
+            }
+        }
+    }
+
+    override var 单击事件: () -> Unit = {}
+    override var 附加事件: () -> Unit = {}
+
+}
+
+fun Int.toColor(): Color {
+    val lv = toLong()
+    return Color.rgb(red(lv).toInt(), green(lv).toInt(), blue(lv).toInt(), alpha(lv).toDouble())
 }

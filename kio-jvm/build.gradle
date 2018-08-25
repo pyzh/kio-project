@@ -1,0 +1,22 @@
+plugins {
+    id 'kotlin-platform-jvm'
+}
+
+ext.mvn_name = 'Kio Jvm Impl'
+
+apply from : "../mvn.gradle"
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile project(":kio-jvm-core")
+    expectedBy project(":kio-core")
+}
+
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}

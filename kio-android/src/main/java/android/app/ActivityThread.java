@@ -7,7 +7,7 @@ import android.os.IBinder;
 
 public final class ActivityThread {
 
-	private static final String message = "must call at android device";
+	private static String message = "must call at android device";
 
 	public ActivityThread() {
 		throw new IllegalStateException(message);

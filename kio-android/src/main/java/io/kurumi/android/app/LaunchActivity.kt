@@ -16,8 +16,18 @@ class LaunchActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         if (Build.VERSION.SDK_INT >= 23) {
-            requestPermissions(permissions, 19132)
-            return
+
+            val lock = 文件.取私有地址("versionlock-${安卓应用.实例.版本}")
+
+            if (!lock.是文件) {
+
+                lock.新建()
+                requestPermissions(permissions, 19132)
+                return
+
+            }
+
+
         }
 
         launch()

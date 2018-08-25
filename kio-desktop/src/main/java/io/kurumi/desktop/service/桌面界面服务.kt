@@ -5,16 +5,9 @@ import io.kurumi.desktop.ui.view.桌面文本视图
 import io.kurumi.desktop.ui.view.桌面线性布局
 import io.kurumi.desktop.ui.view.桌面视图
 import io.kurumi.desktop.桌面界面
-import io.kurumi.platform.content.上下文
-import io.kurumi.platform.content.界面
-import io.kurumi.platform.ui.abs.基本布局
-import io.kurumi.platform.ui.abs.基本文本
-import io.kurumi.platform.ui.abs.基本线性布局
-import io.kurumi.platform.ui.abs.基本视图
-import io.kurumi.service.界面服务
 import javafx.application.Platform
 
-object 桌面界面服务 : 界面服务 {
+object 桌面界面服务 : 上下文 {
 
     override fun 主线程处理(_执行: () -> Unit) {
         Platform.runLater(_执行)

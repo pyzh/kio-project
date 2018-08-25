@@ -5,10 +5,6 @@ import android.view.ViewGroup
 import io.kurumi.android.R
 import io.kurumi.android.service.安卓界面服务
 import io.kurumi.android.系统服务
-import io.kurumi.platform.content.上下文
-import io.kurumi.platform.ui.abs.基本视图
-import io.kurumi.platform.ui.view.视图
-import io.kurumi.util.主线程
 
 open class 安卓视图(val 上下文: 上下文, open val 内容: View = View(安卓界面服务.取安卓上下文(上下文))) : 基本视图 {
 
@@ -55,25 +51,25 @@ open class 安卓视图(val 上下文: 上下文, open val 内容: View = View(�
         }
 
     override var 上填充: Int
-        get() = px(内容.paddingTop)
+        get() = dpx(内容.paddingTop)
         set(value) {
             置填充(value, 下填充, 左填充, 右填充)
         }
 
     override var 下填充: Int
-        get() = px(内容.paddingBottom)
+        get() = dpx(内容.paddingBottom)
         set(value) {
             置填充(上填充, value, 左填充, 右填充)
         }
 
     override var 左填充: Int
-        get() = px(内容.paddingLeft)
+        get() = dpx(内容.paddingLeft)
         set(value) {
             置填充(上填充, 下填充, value, 右填充)
         }
 
     override var 右填充: Int
-        get() = px(内容.paddingRight)
+        get() = dpx(内容.paddingRight)
         set(value) {}
 
     override var 填充: Int
@@ -96,10 +92,41 @@ open class 安卓视图(val 上下文: 上下文, open val 内容: View = View(�
             }
         }
 
+    override var 单击事件: () -> Unit = {}
+        set(value) {
+            内容.setOnClickListener {
+                value()
+            }
+        }
+
+    override var 附加事件: () -> Unit = {}
+        set(value) {
+            内容.setOnLongClickListener {
+                value()
+                true
+            }
+        }
+
+    override var 背景颜色: Int
+        get() = -1
+        set(value) {
+            内容.setBackgroundColor(value)
+        }
+
+    override var 阴影: Int
+        get() = dpx(内容.translationZ)
+        set(value) {
+            内容.translationZ = dp(value).toFloat()
+        }
+
     companion object {
 
-        fun px(dimen: Int): Int {
-            return (dimen / 系统服务.屏幕信息.density).toInt()
+        fun dpx(dimen: Number): Int {
+            return (dimen.toFloat() / 系统服务.屏幕信息.density).toInt()
+        }
+
+        fun spx(dimen: Number): Int {
+            return ((dimen.toFloat() / 系统服务.屏幕信息.scaledDensity) * 系统服务.屏幕信息.density).toInt()
         }
 
         fun dp(dimen: Int): Int {
@@ -118,14 +145,7 @@ fun <T : 视图> View?.取视图(): T? {
 
     if (this == null) return null
 
-    var _视图 = getTag(R.id._kio_view_obj) as 视图?
-
-    if (_视图 !== null) {
-        return _视图 as T
-    }
-
-    when (this) {
-        else -> TODO()
-    }
+    @Suppress("UNCHECKED_CAST")
+    return getTag(R.id._kio_view_obj) as T?
 
 }

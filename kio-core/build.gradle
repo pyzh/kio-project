@@ -1,27 +1,12 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.2.60'
+    id 'kotlin-platform-common'
 }
 
-ext.mvn_name = 'Kio'
+ext.mvn_name = 'Kio Core'
 
 apply from : "../mvn.gradle"
 
-def hutool_version = "4.1.7"
-
 dependencies {
-    compile("cn.hutool:hutool-core:${hutool_version}")
-    compile("cn.hutool:hutool-http:${hutool_version}")
-    compile("cn.hutool:hutool-json:${hutool_version}")
- //   compile("org.fusesource.jansi:jansi:1.17.1")
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-}
-
-sourceCompatibility = "1.8"
-
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
+    compile "org.jetbrains.kotlin:kotlin-stdlib-common"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib"
 }

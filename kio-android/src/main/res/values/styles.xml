@@ -2,7 +2,7 @@
 <resources>
 	
 	<style name="Kurumi" parent="@android:style/Theme.Material.Light">
-		<item name="android:titleTextColor">#FFFFFF</item>
+		<item name="android:translationZ">6dp</item>
 	</style>
 	
 	<style name="Kurumi.Red">

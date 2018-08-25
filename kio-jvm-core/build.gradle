@@ -1,0 +1,27 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+ext.mvn_name = 'Kio Jvm Core'
+
+apply from : "../mvn.gradle"
+
+def hutool_version = "4.1.8"
+
+dependencies {
+    compile("cn.hutool:hutool-core:${hutool_version}")
+    compile("cn.hutool:hutool-crypto:${hutool_version}")
+ //   compile("org.fusesource.jansi:jansi:1.17.1")
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile project(":kio-core")
+}
+
+sourceCompatibility = "1.8"
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}

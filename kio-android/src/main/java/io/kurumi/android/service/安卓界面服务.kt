@@ -11,15 +11,8 @@ import io.kurumi.android.ui.安卓线性布局
 import io.kurumi.android.ui.安卓视图
 import io.kurumi.android.安卓应用
 import io.kurumi.android.安卓界面
-import io.kurumi.platform.content.上下文
-import io.kurumi.platform.content.界面
-import io.kurumi.platform.ui.abs.基本布局
-import io.kurumi.platform.ui.abs.基本文本
-import io.kurumi.platform.ui.abs.基本线性布局
-import io.kurumi.platform.ui.abs.基本视图
-import io.kurumi.service.界面服务
 
-object 安卓界面服务 : 界面服务 {
+object 安卓界面服务 : 上下文 {
 
     val mainHandler = Handler(Looper.getMainLooper())
 

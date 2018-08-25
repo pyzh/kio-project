@@ -1,10 +1,7 @@
 package io.kurumi.desktop.ui.view
 
-import io.kurumi.platform.content.上下文
-import io.kurumi.platform.ui.*
-import io.kurumi.platform.ui.abs.基本文本
 import javafx.scene.control.Label
-import javafx.scene.paint.Color
+import javafx.scene.text.Font
 
 open class 桌面文本视图(_上下文: 上下文, override val 内容: Label) : 桌面视图(_上下文, 内容), 基本文本 {
 
@@ -20,7 +17,12 @@ open class 桌面文本视图(_上下文: 上下文, override val 内容: Label)
         get() = "#${内容.textFill}".toIntColor()
         set(value) {
             val lv = value.toLong()
-            内容.textFill = Color.rgb(red(lv).toInt(), green(lv).toInt(), blue(lv).toInt(), alpha(lv).toDouble())
+            内容.textFill = value.toColor()
         }
 
+    override var 文本大小: Int
+        get() = 内容.font.size.toInt()
+        set(value) {
+            内容.font = Font.font(value.toDouble())
+        }
 }

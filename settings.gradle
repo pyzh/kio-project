@@ -1,5 +1,19 @@
-include ':kio-androidtest'
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "kotlin-platform-jvm") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+
+            if (requested.id.id == "kotlin-platform-jvm") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+        }
+    }
+}
 rootProject.name = 'kio'
 include 'kio-core'
+include 'kio-jvm'
+include 'kio-jvm-core'
 include 'kio-desktop'
 include 'kio-android'

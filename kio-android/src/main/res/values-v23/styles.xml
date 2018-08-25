@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<style name="Kurumi" parent="@android:style/Theme.Material.Light">
+		<item name="android:titleTextColor">#FFFFFF</item>
+	</style>
+
+</resources>
