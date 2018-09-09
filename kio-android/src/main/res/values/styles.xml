@@ -1,158 +1,2366 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<!--
+  ~ Copyright 2018 MikaGuraNTK
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~  http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
 	
-	<style name="Kurumi" parent="@android:style/Theme.Material.Light">
+	<color name="light_window_background">#F4F4F4</color>
+	<color name="light_icon_color">@color/material_light_black</color>
+	<color name="light_card_background">@color/material_white</color>
+	<color name="light_title_color">@color/material_light_white</color>
+	<color name="light_subtitle_color">@color/material_grey_350</color>
+	<color name="light_selected_color">@color/material_grey_350</color>
+	<color name="light_text_color_primary">#212121</color>
+	<color name="light_text_color_secondary">#757575</color>
+	
+	<style name="Kurumi" parent="@style/Theme.AppCompat.Light.NoActionBar">
 		<item name="android:translationZ">6dp</item>
+		<item name="android:textColorPrimary">@color/light_text_color_primary</item>
+		<item name="android:textColorSecondary">@color/light_text_color_secondary</item>
+		<item name="android:textColorTertiary">@color/material_grey_700</item>
+		<item name="android:windowBackground">@color/light_window_background</item>
+		<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+		<item name="card_background">@color/light_card_background</item>
+		<item name="title_color">@color/light_title_color</item>
+		<item name="subtitle_color">@color/light_subtitle_color</item>
+		<item name="selected_color">@color/light_selected_color</item>
+		<item name="popup_theme">@style/PopupThemeLight</item>
+		<item name="appbar_theme">@style/AppbarThemeLight</item>
+		<item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeLight</item>
+		<item name="popup_menu_theme">@style/PopupMenuLight</item>
 	</style>
+	
+	<style name="PopupMenuLight" parent="Widget.AppCompat.Light.PopupMenu">
+		<item name="android:popupBackground">@color/light_window_background</item>
+	</style>
+	
+	<style name="PopupThemeLight" parent="ThemeOverlay.AppCompat.Light">
+		<item name="android:colorBackground">@color/light_window_background</item>
+	</style>
+	
+	<style name="ContextPopupThemeLight" parent="PopupThemeLight">
+		<item name="android:popupBackground">@color/light_window_background</item>
+		<!--
+		 ~  Context menu of a RecyclerView is displayed in the wrong location when setting
+		 ~  a contextPopupMenuStyle on Android N, set bellow can fix it.
+		-->
+		<item name="android:overlapAnchor">true</item>
+	</style>
+	
+	<style name="Kurumi.Dark" parent="@android:style/ThemeOverlay.Material.Dark">
+	</style>
+	
 	
 	<style name="Kurumi.Red">
 		<item name="android:colorPrimary">@color/primary_color_red</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_red_dark</item>
-		<item name="android:colorAccent">@color/accent_color_red</item>
 		<item name="android:navigationBarColor">@color/primary_color_red_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Red.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
 		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Red.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Red.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Red.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Red.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Red.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Red.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Red.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Red.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Red.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Red.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Red.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Red.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Red.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Red.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Red.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Red.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Red.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Red.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Pink">
 		<item name="android:colorPrimary">@color/primary_color_pink</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_pink_dark</item>
-		<item name="android:colorAccent">@color/accent_color_pink</item>
 		<item name="android:navigationBarColor">@color/primary_color_pink_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Pink.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
 		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Pink.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Pink.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Pink.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Pink.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Pink.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Pink.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Purple">
 		<item name="android:colorPrimary">@color/primary_color_purple</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_purple_dark</item>
 		<item name="android:navigationBarColor">@color/primary_color_purple_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Purple.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
 		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Purple.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Purple.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Purple.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Purple.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Purple.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Purple.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.DeepPurple">
 		<item name="android:colorPrimary">@color/primary_color_deep_purple</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_deep_purple_dark</item>
-		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
 		<item name="android:navigationBarColor">@color/primary_color_deep_purple_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.DeepPurple.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
 		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.DeepPurple.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Indigo">
 		<item name="android:colorPrimary">@color/primary_color_indigo</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_indigo_dark</item>
-		<item name="android:colorAccent">@color/accent_color_indigo</item>
 		<item name="android:navigationBarColor">@color/primary_color_indigo_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Indigo.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
 		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Indigo.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Blue">
 		<item name="android:colorPrimary">@color/primary_color_blue</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_blue_dark</item>
-		<item name="android:colorAccent">@color/accent_color_blue</item>
 		<item name="android:navigationBarColor">@color/primary_color_blue_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Blue.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Blue.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
 		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Blue.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Blue.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Blue.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Blue.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Blue.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.LightBlue">
 		<item name="android:colorPrimary">@color/primary_color_light_blue</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_light_blue_dark</item>
-		<item name="android:colorAccent">@color/accent_color_light_blue</item>
 		<item name="android:navigationBarColor">@color/primary_color_light_blue_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.LightBlue.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
 		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.LightBlue.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Cyan">
 		<item name="android:colorPrimary">@color/primary_color_cyan</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_cyan_dark</item>
-		<item name="android:colorAccent">@color/accent_color_cyan</item>
 		<item name="android:navigationBarColor">@color/primary_color_cyan_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Cyan.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
 		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Cyan.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Teal">
 		<item name="android:colorPrimary">@color/primary_color_teal</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_teal_dark</item>
-		<item name="android:colorAccent">@color/accent_color_teal</item>
 		<item name="android:navigationBarColor">@color/primary_color_teal_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Teal.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Teal.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Teal.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
 		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Teal.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Teal.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Teal.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Teal.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Green">
 		<item name="android:colorPrimary">@color/primary_color_green</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_green_dark</item>
-		<item name="android:colorAccent">@color/accent_color_green</item>
 		<item name="android:navigationBarColor">@color/primary_color_green_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Green.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Green.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Green.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Green.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Green.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Green.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Green.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Green.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Green.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Green.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
 		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Green.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Green.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Green.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Green.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Green.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Green.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Green.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Green.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Green.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.LightGreen">
 		<item name="android:colorPrimary">@color/primary_color_light_green</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_light_green_dark</item>
-		<item name="android:colorAccent">@color/accent_color_light_green</item>
 		<item name="android:navigationBarColor">@color/primary_color_light_green_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.LightGreen.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
 		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.LightGreen.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Lime">
 		<item name="android:colorPrimary">@color/primary_color_lime</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_lime_dark</item>
-		<item name="android:colorAccent">@color/accent_color_lime</item>
 		<item name="android:navigationBarColor">@color/primary_color_lime_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Lime.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Lime.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Lime.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Lime.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
 		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Lime.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Lime.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Lime.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Yellow">
 		<item name="android:colorPrimary">@color/primary_color_yellow</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_yellow_dark</item>
-		<item name="android:colorAccent">@color/accent_color_yellow</item>
 		<item name="android:navigationBarColor">@color/primary_color_yellow_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Yellow.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
 		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Yellow.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Amber">
 		<item name="android:colorPrimary">@color/primary_color_amber</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_amber_dark</item>
-		<item name="android:colorAccent">@color/accent_color_amber</item>
 		<item name="android:navigationBarColor">@color/primary_color_amber_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Amber.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Amber.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Amber.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Amber.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
 		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Amber.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Amber.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Amber.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Orange">
 		<item name="android:colorPrimary">@color/primary_color_orange</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_orange_dark</item>
-		<item name="android:colorAccent">@color/accent_color_orange</item>
 		<item name="android:navigationBarColor">@color/primary_color_orange_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Orange.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Orange.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Orange.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Orange.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
 		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Orange.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Orange.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Orange.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.DeepOrange">
 		<item name="android:colorPrimary">@color/primary_color_deep_orange</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_deep_orange_dark</item>
-		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
 		<item name="android:navigationBarColor">@color/primary_color_deep_orange_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.DeepOrange.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
 		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.DeepOrange.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Brown">
 		<item name="android:colorPrimary">@color/primary_color_brown</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_brown_dark</item>
-		<item name="android:colorAccent">@color/accent_color_brown</item>
 		<item name="android:navigationBarColor">@color/primary_color_brown_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Brown.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Brown.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Brown.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Brown.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Brown.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
 		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Brown.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Brown.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.Grey">
 		<item name="android:colorPrimary">@color/primary_color_grey</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_grey_dark</item>
-		<item name="android:colorAccent">@color/accent_color_grey</item>
 		<item name="android:navigationBarColor">@color/primary_color_grey_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.Grey.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.Grey.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.Grey.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.Grey.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.Grey.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.Grey.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
 		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.Grey.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 	
 	<style name="Kurumi.BlueGrey">
 		<item name="android:colorPrimary">@color/primary_color_blue_grey</item>
 		<item name="android:colorPrimaryDark">@color/primary_color_blue_grey_dark</item>
-		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
 		<item name="android:navigationBarColor">@color/primary_color_blue_grey_dark</item>
+	</style>
+	
+	
+	<style name="Kurumi.BlueGrey.Red">
+		<item name="android:colorAccent">@color/accent_color_red</item>
+		<item name="colorAccent">@color/accent_color_red</item>
+		<item name="android:colorButtonNormal">@color/accent_color_red</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Pink">
+		<item name="android:colorAccent">@color/accent_color_pink</item>
+		<item name="colorAccent">@color/accent_color_pink</item>
+		<item name="android:colorButtonNormal">@color/accent_color_pink</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Purple">
+		<item name="android:colorAccent">@color/accent_color_purple</item>
+		<item name="colorAccent">@color/accent_color_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_purple</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.DeepPurple">
+		<item name="android:colorAccent">@color/accent_color_deep_purple</item>
+		<item name="colorAccent">@color/accent_color_deep_purple</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_purple</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Indigo">
+		<item name="android:colorAccent">@color/accent_color_indigo</item>
+		<item name="colorAccent">@color/accent_color_indigo</item>
+		<item name="android:colorButtonNormal">@color/accent_color_indigo</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Blue">
+		<item name="android:colorAccent">@color/accent_color_blue</item>
+		<item name="colorAccent">@color/accent_color_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_blue</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.LightBlue">
+		<item name="android:colorAccent">@color/accent_color_light_blue</item>
+		<item name="colorAccent">@color/accent_color_light_blue</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_blue</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Cyan">
+		<item name="android:colorAccent">@color/accent_color_cyan</item>
+		<item name="colorAccent">@color/accent_color_cyan</item>
+		<item name="android:colorButtonNormal">@color/accent_color_cyan</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Teal">
+		<item name="android:colorAccent">@color/accent_color_teal</item>
+		<item name="colorAccent">@color/accent_color_teal</item>
+		<item name="android:colorButtonNormal">@color/accent_color_teal</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Green">
+		<item name="android:colorAccent">@color/accent_color_green</item>
+		<item name="colorAccent">@color/accent_color_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_green</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.LightGreen">
+		<item name="android:colorAccent">@color/accent_color_light_green</item>
+		<item name="colorAccent">@color/accent_color_light_green</item>
+		<item name="android:colorButtonNormal">@color/accent_color_light_green</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Lime">
+		<item name="android:colorAccent">@color/accent_color_lime</item>
+		<item name="colorAccent">@color/accent_color_lime</item>
+		<item name="android:colorButtonNormal">@color/accent_color_lime</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Yellow">
+		<item name="android:colorAccent">@color/accent_color_yellow</item>
+		<item name="colorAccent">@color/accent_color_yellow</item>
+		<item name="android:colorButtonNormal">@color/accent_color_yellow</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Amber">
+		<item name="android:colorAccent">@color/accent_color_amber</item>
+		<item name="colorAccent">@color/accent_color_amber</item>
+		<item name="android:colorButtonNormal">@color/accent_color_amber</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Orange">
+		<item name="android:colorAccent">@color/accent_color_orange</item>
+		<item name="colorAccent">@color/accent_color_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_orange</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.DeepOrange">
+		<item name="android:colorAccent">@color/accent_color_deep_orange</item>
+		<item name="colorAccent">@color/accent_color_deep_orange</item>
+		<item name="android:colorButtonNormal">@color/accent_color_deep_orange</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Brown">
+		<item name="android:colorAccent">@color/accent_color_brown</item>
+		<item name="colorAccent">@color/accent_color_brown</item>
+		<item name="android:colorButtonNormal">@color/accent_color_brown</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.Grey">
+		<item name="android:colorAccent">@color/accent_color_grey</item>
+		<item name="colorAccent">@color/accent_color_grey</item>
+		<item name="android:colorButtonNormal">@color/accent_color_grey</item>
+	</style>
+	
+	<style name="Kurumi.BlueGrey.BlueGrey">
+		<item name="android:colorAccent">@color/accent_color_blue_grey</item>
+		<item name="colorAccent">@color/accent_color_blue_grey</item>
 		<item name="android:colorButtonNormal">@color/accent_color_blue_grey</item>
 	</style>
 

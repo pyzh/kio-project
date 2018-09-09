@@ -1,16 +1,37 @@
+/*
+ * Copyright 2018 MikaGuraNTK
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+
 package io.kurumi.android.ui
 
+import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import io.kurumi.android.R
-import io.kurumi.android.service.安卓界面服务
+import io.kurumi.android.安卓应用
 import io.kurumi.android.系统服务
+import io.kurumi.app.content.上下文
+import io.kurumi.app.ui.abs.视图
+import io.kurumi.主线程
 
-open class 安卓视图(val 上下文: 上下文, open val 内容: View = View(安卓界面服务.取安卓上下文(上下文))) : 基本视图 {
+open class 安卓视图(override val 上下文: 上下文, open val 内容: View = View(取上下文(上下文))) : 视图 {
 
-    override fun 初始化(_视图: 视图) {
+    init {
 
-        内容.setTag(R.id._kio_view_obj, _视图)
+        内容.setTag(R.id._kio_view_obj, this)
 
     }
 
@@ -120,6 +141,11 @@ open class 安卓视图(val 上下文: 上下文, open val 内容: View = View(�
         }
 
     companion object {
+
+        fun 取上下文(_上下文: 上下文): Context {
+            if (_上下文 is Context) return _上下文
+            return 安卓应用.实例
+        }
 
         fun dpx(dimen: Number): Int {
             return (dimen.toFloat() / 系统服务.屏幕信息.density).toInt()

@@ -30,3 +30,7 @@ dependencies {
     // api "io.kurumi.kio-android:${kio_version}"
 }
 ~~~
+
+### Js项目支持
+如果使用Kio的内置浏览器无须任何操作,而一般浏览器需要引用Kio支持库
+(Kio浏览器会增加 Kio-Interface 的 Http头以判断版本

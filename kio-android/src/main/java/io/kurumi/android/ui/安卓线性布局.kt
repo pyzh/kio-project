@@ -1,17 +1,33 @@
+/*
+ * Copyright 2018 MikaGuraNTK
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+
 package io.kurumi.android.ui
 
 import android.os.Build
 import android.widget.LinearLayout
 import cn.hutool.core.util.ReflectUtil
-import io.kurumi.android.service.安卓界面服务
 import io.kurumi.android.安卓布局重力
-import io.kurumi.platform.content.上下文
-import io.kurumi.platform.ui.abs.基本线性布局
-import io.kurumi.platform.ui.布局方向
-import io.kurumi.platform.ui.布局重力
-import io.kurumi.util.主线程
+import io.kurumi.app.content.上下文
+import io.kurumi.app.ui.abs.线性布局
+import io.kurumi.app.ui.布局方向
+import io.kurumi.app.ui.布局重力
+import io.kurumi.主线程
 
-abstract class 安卓线性布局(_上下文: 上下文, override val 内容: LinearLayout = LinearLayout(安卓界面服务.取安卓上下文(_上下文))) : 安卓布局(_上下文, 内容), 基本线性布局 {
+abstract class 安卓线性布局(_上下文: 上下文, override val 内容: LinearLayout = LinearLayout(取上下文(_上下文))) : 安卓布局(_上下文, 内容), 线性布局 {
 
     val gravityRef: Int
         get() {
@@ -51,13 +67,13 @@ abstract class 安卓线性布局(_上下文: 上下文, override val 内容: Li
 
     }
 
-    open class 垂直(_上下文: 上下文) : 安卓线性布局(_上下文), 基本线性布局.垂直 {
+    open class 垂直(_上下文: 上下文) : 安卓线性布局(_上下文), 线性布局.垂直 {
         init {
             内容.orientation = 到方向(布局方向.垂直)
         }
     }
 
-    open class 水平(_上下文: 上下文) : 安卓线性布局(_上下文), 基本线性布局.水平 {
+    open class 水平(_上下文: 上下文) : 安卓线性布局(_上下文), 线性布局.水平 {
         init {
             内容.orientation = 到方向(布局方向.水平)
         }
