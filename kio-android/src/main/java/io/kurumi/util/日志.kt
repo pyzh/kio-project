@@ -22,47 +22,52 @@ import android.view.Gravity
 import android.widget.CardView
 import android.widget.TextView
 import android.widget.Toast
-import cn.hutool.core.lang.caller.CallerUtil
 import io.kurumi.android.ui.安卓视图
 import io.kurumi.android.安卓应用
 import io.kurumi.app.ui.颜色
 
-actual object 默认 : 基本日志 {
+actual interface 日志 {
 
-    override fun 打印(level: 基本日志.等级, log: Any?) {
+    actual fun 调试(_内容: String)
+    actual fun 提示(_内容: String)
+    actual fun 警告(_内容: String)
 
-        when (level) {
-            基本日志.等级.Debug -> Log.d(CallerUtil.getCaller(2).toString(), log?.toString() ?: "null")
-            基本日志.等级.Info -> printMsg(log, 颜色.基本.基本)
-            基本日志.等级.Warning -> printMsg(log, 颜色.红色.基本)
-            基本日志.等级.Error -> {
-                printMsg(log, 颜色.红色.基本)
-                Log.e(CallerUtil.getCaller(2).toString(), log?.toString() ?: "null")
-            }
+    actual companion object : 日志 {
+
+        override fun 调试(_内容: String) {
+            Log.i("KioLog", _内容)
         }
 
-    }
+        override fun 提示(_内容: String) {
+            printMsg(_内容, 颜色.基本.基本)
+        }
 
-    fun printMsg(log: Any?, color: Int) {
+        override fun 警告(_内容: String) {
+            printMsg(_内容, 颜色.红色.基本)
+        }
 
-        val card = CardView(安卓应用.实例)
-        card.setCardBackgroundColor(颜色.白色)
+        fun printMsg(log: Any?, color: Int) {
 
-        val padding = 安卓视图.dp(8)
-        card.setPadding(padding, padding, padding, padding)
+            val card = CardView(安卓应用.实例)
+            card.setCardBackgroundColor(颜色.白色)
 
-        card.gravity = Gravity.CENTER
+            val padding = 安卓视图.dp(8)
+            card.setPadding(padding, padding, padding, padding)
 
-        val text = TextView(安卓应用.实例)
-        text.text = log?.toString() ?: "null"
-        text.setTextColor(color)
-        text.textSize = 安卓视图.sp(14).toFloat()
+            card.gravity = Gravity.CENTER
 
-        card.addView(text)
+            val text = TextView(安卓应用.实例)
+            text.text = log?.toString() ?: "null"
+            text.setTextColor(color)
+            text.textSize = 安卓视图.sp(14).toFloat()
 
-        val toast = Toast.makeText(安卓应用.实例, log?.toString() ?: "null", Toast.LENGTH_SHORT)
-        toast.view = card
-        toast.show()
+            card.addView(text)
+
+            val toast = Toast.makeText(安卓应用.实例, log?.toString() ?: "null", Toast.LENGTH_SHORT)
+            toast.view = card
+            toast.show()
+
+        }
 
     }
 

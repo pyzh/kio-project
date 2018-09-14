@@ -17,33 +17,16 @@
 
 package io.kurumi.util
 
-interface 基本日志 {
+expect interface 日志 {
 
-    fun 打印(level: 等级, log: Any?)
+    fun 调试(_内容: String)
+    fun 提示(_内容: String)
+    fun 警告(_内容: String)
 
-    enum class 等级 {
-        Debug, Info, Warning, Error
-    }
+    companion object : 日志
 
 }
 
-expect object 默认 : 基本日志
-
-var 日志 = 默认
-
-fun 日志(log: Any?) {
-    日志.打印(基本日志.等级.Debug, log)
-}
-
-fun 提示(log: Any?) {
-    日志.打印(基本日志.等级.Info, log)
-}
-
-fun 警告(log: Any?) {
-    日志.打印(基本日志.等级.Warning, log)
-}
-
-fun 错误(log: Any?) {
-    日志.打印(基本日志.等级.Error, log)
-}
-
+fun 调试(_内容: String) = 日志.调试(_内容)
+fun 提示(_内容: String) = 日志.提示(_内容)
+fun 警告(_内容: String) = 日志.警告(_内容)

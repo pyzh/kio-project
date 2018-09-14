@@ -17,16 +17,29 @@
 
 package io.kurumi.util
 
+import java.text.DateFormat
 import java.util.*
 
-actual object 默认 : 基本日志 {
+actual interface 日志 {
 
-    @Suppress("DEPRECATION")
-    override fun 打印(level: 基本日志.等级, log: Any?) {
-        when (level) {
-            io.kurumi.service.日志服务.Level.Warning, io.kurumi.service.日志服务.Level.Error -> println("[Kurumi][${Date().toLocaleString()}]{log?.转换() ?: null}")
-            else -> println(log?.toString() ?: "null")
+    actual fun 调试(_内容: String)
+    actual fun 提示(_内容: String)
+    actual fun 警告(_内容: String)
+
+    actual companion object : 日志 {
+
+        override fun 调试(_内容: String) {
+            println("[Kio Debug|${DateFormat.getDateTimeInstance().format(Date())}] $_内容")
         }
+
+        override fun 提示(_内容: String) {
+            println(_内容)
+        }
+
+        override fun 警告(_内容: String) {
+            System.err.println("[Kio Error] $_内容")
+        }
+
     }
 
 }

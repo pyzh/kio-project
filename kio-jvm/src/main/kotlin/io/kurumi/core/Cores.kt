@@ -15,36 +15,10 @@
  *
  */
 
-package org.nanohttpd.protocols.websockets;
+package io.kurumi.core
 
-public enum OpCode {
-	Continuation(0),
-	Text(1),
-	Binary(2),
-	Close(8),
-	Ping(9),
-	Pong(10);
+import io.kurumi.jvm.命令实现
 
-	private final byte code;
-
-	private OpCode(int code) {
-		this.code = (byte) code;
-	}
-
-	public static OpCode find(byte value) {
-		for (OpCode opcode : values()) {
-			if (opcode.getValue() == value) {
-				return opcode;
-			}
-		}
-		return null;
-	}
-
-	public byte getValue() {
-		return this.code;
-	}
-
-	public boolean isControlFrame() {
-		return this == Close || this == Ping || this == Pong;
-	}
-}
+actual typealias 命令 = 命令实现
+actual typealias 链接编码实现 = io.kurumi.jvm._链接编码实现
+actual typealias Unicode编码实现 = io.kurumi.jvm._Unicode编码实现

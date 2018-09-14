@@ -20,44 +20,48 @@ package io.kurumi.util
 import io.kurumi.applyIfNotNull
 import io.kurumi.core.连接
 
-var PAN_USER_AGENT = "JUC(Linux;U;2.2;Zh_cn;HTC Desire;480*800;)UCWEB7.7.0.85/139/999"
-var PAN_REGEX = "href=\"(http\\:\\/\\/d\\.pcs\\.baidu\\.com\\S*)\"\\sid=".toRegex()
+object 百度云 {
 
-fun 取百度云直链(_链接: String, _回调: (String?) -> Unit) {
+    var PAN_USER_AGENT = "JUC(Linux;U;2.2;Zh_cn;HTC Desire;480*800;)UCWEB7.7.0.85/139/999"
+    var PAN_REGEX = "href=\"(http\\:\\/\\/d\\.pcs\\.baidu\\.com\\S*)\"\\sid=".toRegex()
 
-    连接(_链接).发送 {
+    fun 取直链(_链接: String, _回调: (String?) -> Unit) {
 
-        if (成功) {
+        连接(_链接).发送 {
 
-            try {
+            if (成功) {
 
-                PAN_REGEX.find(字符!!).applyIfNotNull {
+                try {
 
-                    val url = value.replace("amp;", "")
+                    PAN_REGEX.find(字符!!).applyIfNotNull {
 
-                    if (url.startsWith("http")) {
+                        val url = value.replace("amp;", "")
 
-                        _回调(url)
+                        if (url.startsWith("http")) {
 
-                        return@发送
+                            _回调(url)
+
+                            return@发送
+
+                        }
 
                     }
 
+                } catch (ignored: Exception) {
                 }
 
-            } catch (ignored: Exception) {
             }
+
+            _回调(null)
 
         }
 
-        _回调(null)
-
     }
 
-}
+    fun 连接(_地址: String): 连接 {
 
-fun 百度云连接(_地址: String): 连接 {
+        return 连接(_地址).请求头("User-Agent", PAN_USER_AGENT)
 
-    return 连接(_地址).请求头("User-Agent", PAN_USER_AGENT)
+    }
 
 }

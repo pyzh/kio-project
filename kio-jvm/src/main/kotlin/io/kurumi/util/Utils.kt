@@ -15,10 +15,7 @@
  *
  */
 
-package io.kurumi.core
+package io.kurumi.util
 
-import io.kurumi.jvm._Unicode编码实现
-import io.kurumi.jvm._链接编码实现
-
-actual typealias 链接编码实现 = _链接编码实现
-actual typealias Unicode编码实现 = _Unicode编码实现
+actual typealias 线程池 = 线程池实现
+actual typealias 压缩 = 压缩实现

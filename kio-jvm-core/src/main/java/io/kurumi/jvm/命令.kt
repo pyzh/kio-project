@@ -19,10 +19,6 @@ package io.kurumi.jvm
 
 object 命令实现 {
 
-    fun 可用(): Boolean {
-        return true
-    }
-
     fun 执行(_命令: String, _回调: (_成功: Boolean, _结果: String) -> Unit = { _, _ ->
     }) {
         try {

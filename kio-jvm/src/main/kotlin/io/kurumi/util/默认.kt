@@ -15,11 +15,10 @@
  *
  */
 
-package org.nanohttpd.protocols.http.response;
+package io.kurumi.util
 
-public interface IStatus {
-
-	String getDescription();
-
-	int getRequestStatus();
+actual object 默认 : 基本日志 {
+    override fun 打印(level: 基本日志.等级, log: Any?) {
+        TODO()
+    }
 }
