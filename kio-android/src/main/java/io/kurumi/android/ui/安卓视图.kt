@@ -31,7 +31,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
 
     var params: ViewGroup.LayoutParams
         get() {
-            var f = 内容.layoutParams
+            var f: ViewGroup.LayoutParams? = 内容.layoutParams
             if (f == null) {
                 f = ViewGroup.LayoutParams(-2, -2)
                 params = f
@@ -44,18 +44,33 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
             }
         }
 
+    val marginParams: ViewGroup.MarginLayoutParams
+        get() {
+            var f : ViewGroup.LayoutParams? = 内容.layoutParams
+            if (f == null) {
+                f = ViewGroup.MarginLayoutParams(-2, -2)
+                params = f
+            } else if (f !is ViewGroup.MarginLayoutParams) {
+                f = ViewGroup.MarginLayoutParams(f)
+                params = f
+            }
+            return f
+        }
+
     override var 宽度: Int
         get() = params.width
         set(value) {
-            params.width = value
-            params = params
+            params = params.apply {
+                width = value
+            }
         }
 
     override var 高度: Int
         get() = params.height
         set(value) {
-            params.height = value
-            params = params
+            params = params.apply {
+                height = value
+            }
         }
 
     override var 宽高: Int
@@ -92,12 +107,65 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
     override var 填充: Int
         get() = -1
         set(value) {
-            置填充(value, value, value, value)
+            主线程 {
+                val intvalue = dp(value)
+                内容.setPadding(intvalue,intvalue,intvalue,intvalue)
+            }
         }
 
     override fun 置填充(_上: Int, _下: Int, _左: Int, _右: Int) {
         主线程 {
             内容.setPadding(dp(_左), dp(_上), dp(_右), dp(_下))
+        }
+    }
+
+    override var 上边距: Int
+        get() = dpx(marginParams.topMargin)
+        set(value) {
+            params = marginParams.apply {
+                topMargin = dp(value)
+            }
+        }
+
+    override var 下边距: Int
+        get() = dpx(marginParams.bottomMargin)
+        set(value) {
+            params = marginParams.apply {
+                bottomMargin = dp(value)
+            }
+        }
+
+    override var 左边距: Int
+        get() = dpx(marginParams.leftMargin)
+        set(value) {
+            params = marginParams.apply {
+                leftMargin = dp(value)
+            }
+        }
+
+    override var 右边距: Int
+        get() = dpx(marginParams.rightMargin)
+        set(value) {
+            params = marginParams.apply {
+                rightMargin = dp(value)
+            }
+        }
+
+    override var 边距: Int
+        get() = -1
+        set(value) {
+            val intvalue = dp(value)
+            params = marginParams.apply {
+                topMargin = intvalue
+                bottomMargin = intvalue
+                leftMargin = intvalue
+                rightMargin = intvalue
+            }
+        }
+
+    override fun 置边距(_上: Int, _下: Int, _左: Int, _右: Int) {
+        params = marginParams.apply {
+            setMargins(dp(_左), dp(_上), dp(_右), dp(_下))
         }
     }
 

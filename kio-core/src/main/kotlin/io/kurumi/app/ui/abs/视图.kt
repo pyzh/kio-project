@@ -41,6 +41,12 @@ interface 视图 {
     var 右填充: Int
     var 填充: Int
 
+    var 上边距: Int
+    var 下边距: Int
+    var 左边距: Int
+    var 右边距: Int
+    var 边距: Int
+
     var 背景颜色: Int
 
     var 显示: Boolean
@@ -52,5 +58,6 @@ interface 视图 {
 
 
     fun 置填充(_上: Int, _下: Int, _左: Int, _右: Int)
+    fun 置边距(_上: Int, _下: Int, _左: Int, _右: Int)
 
 }
