@@ -17,4 +17,24 @@
 
 package io.kurumi.util
 
-actual typealias 压缩 = 压缩实现
+import cn.hutool.core.util.ZipUtil
+
+actual object 压缩 {
+
+    actual fun GZIP压缩(_字节: ByteArray): ByteArray {
+        return ZipUtil.gzip(_字节)
+    }
+
+    actual fun GZIP解压(_字节: ByteArray): ByteArray {
+        return ZipUtil.unGzip(_字节)
+    }
+
+    actual fun ZLIB压缩(_字节: ByteArray, _等级: Int): ByteArray {
+        return ZipUtil.zlib(_字节, _等级)
+    }
+
+    actual fun ZLIB解压(_字节: ByteArray): ByteArray {
+        return ZipUtil.unZlib(_字节)
+    }
+
+}

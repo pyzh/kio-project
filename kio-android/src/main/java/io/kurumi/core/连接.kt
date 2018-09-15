@@ -26,7 +26,6 @@ import io.kurumi.data.JSON
 import io.kurumi.data.JSON列表
 import io.kurumi.data.数据
 import io.kurumi.ifNotNull
-import io.kurumi.jvm._取实例
 import io.kurumi.util.异步
 import java.net.InetSocketAddress
 import java.net.Proxy
@@ -92,7 +91,7 @@ open actual class 连接 {
         return 请求.fileForm().get(_键值).ifNotNull {
             when (it) {
                 is FileResource -> {
-                    文件._取实例(it.file)
+                    文件.取实例(it.file.path)
                 }
                 else -> null
             }

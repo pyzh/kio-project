@@ -18,20 +18,22 @@
 package io.kurumi.core
 
 import cn.hutool.core.util.ClipboardUtil
-import io.kurumi.jvm.*
 
 actual object 系统 {
 
-    actual val Linux: Boolean = _Linux
-    actual val Android: Boolean = _Android
-    actual val Mac: Boolean = _Mac
-    actual val MacOsx: Boolean = _MacOsx
-    actual val Win: Boolean = _Win
-    actual val WinXp: Boolean = _WinXp
-    actual val Win7: Boolean = _Win7
-    actual val Win8: Boolean = _Win8
-    actual val Win10: Boolean = _Win10
+    val osName = System.getProperty("os.name")
+    val osVersion = System.getProperty("os.version")
 
+    actual val Linux = osName.contains("Linux") || osName.contains("LINUX")
+    actual val Android = Linux && "Dalvik" == System.getProperty("java.vm.name")
+    actual val Mac = !Linux && osName.contains("Mac")
+    actual val MacOsx = Mac && osName.contains("Mac OS X")
+    actual val Win = !Linux && !Mac && osName.contains("Windows")
+    actual val WinXp = Win && osVersion.contains("5.1")
+    actual val Win7 = Win && osVersion.contains("6.1")
+    actual val Win8 = Win && (osVersion.contains("6.2") || osName.contains("6.3"))
+    actual val Win10 = Win && osVersion.contains("10.0")
+    
     actual var 剪切板: String
         get() = ClipboardUtil.getStr()
         set(value) {

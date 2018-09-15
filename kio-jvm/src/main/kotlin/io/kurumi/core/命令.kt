@@ -17,8 +17,15 @@
 
 package io.kurumi.core
 
-import io.kurumi.jvm.命令实现
+actual object 命令 {
 
-actual typealias 命令 = 命令实现
-actual typealias 链接编码实现 = io.kurumi.jvm._链接编码实现
-actual typealias Unicode编码实现 = io.kurumi.jvm._Unicode编码实现
+    actual fun 执行(_命令: String, _回调: (_成功: Boolean, _结果: String) -> Unit) {
+        try {
+            val _进程 = Runtime.getRuntime().exec(_命令)
+            _回调(_进程.exitValue() == 0, String(_进程.errorStream.readBytes()))
+        } catch (ex: Exception) {
+            _回调(false, ex.toString())
+        }
+    }
+
+}

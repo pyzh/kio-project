@@ -57,7 +57,6 @@ expect class 文件 {
 
     companion object {
 
-        fun 可用(): Boolean
         fun 取实例(vararg _地址: String): 文件
         fun 取实例(_目录: 文件, vararg _地址: String): 文件
         val 私有目录: 文件

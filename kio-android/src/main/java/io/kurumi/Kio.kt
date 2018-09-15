@@ -15,6 +15,7 @@
  *
  */
 
+@file:JvmName("KioExt")
 package io.kurumi
 
 import android.os.Handler

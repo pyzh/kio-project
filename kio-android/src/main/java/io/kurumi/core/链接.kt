@@ -17,8 +17,33 @@
 
 package io.kurumi.core
 
-import io.kurumi.jvm._Unicode编码实现
-import io.kurumi.jvm._链接编码实现
+import cn.hutool.core.exceptions.UtilException
+import cn.hutool.core.text.UnicodeUtil
+import cn.hutool.core.util.URLUtil
+import io.kurumi.bytes
+import io.kurumi.catch
+import io.kurumi.string
 
-actual typealias 链接编码实现 = _链接编码实现
-actual typealias Unicode编码实现 = _Unicode编码实现
+
+actual object 链接编码实现 : 编码 {
+
+    override fun 编码(_内容: ByteArray): ByteArray {
+        return URLUtil.encode(_内容.string).bytes
+    }
+
+    override fun 解码(_内容: ByteArray): ByteArray? {
+        return { URLUtil.decode(_内容.string).bytes }.catch<UtilException, ByteArray?> { null }
+    }
+
+}
+
+actual object Unicode编码实现 : 编码 {
+
+    override fun 编码(_内容: ByteArray): ByteArray {
+        return UnicodeUtil.toUnicode(_内容.string).bytes
+    }
+
+    override fun 解码(_内容: ByteArray): ByteArray? {
+        return UnicodeUtil.toString(_内容.string).bytes
+    }
+}

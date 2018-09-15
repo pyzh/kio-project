@@ -40,12 +40,6 @@ if (_表 == null) LinkedHashMap() else LinkedHashMap(_表) {
         } as 内容?
     }
 
-    interface 参数代理<T> {
-        var value: T?
-    }
-
-    external inline fun <reified 内容> 参数(_键值: String): 参数代理<内容>
-
     open fun getInt(_键值: String): Int? {
         val _内容 = get(_键值)
         return when (_内容) {

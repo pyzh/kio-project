@@ -15,17 +15,17 @@
  *
  */
 
-package io.kurumi.jvm
+package io.kurumi.core
 
 import cn.hutool.core.exceptions.UtilException
 import cn.hutool.core.text.UnicodeUtil
 import cn.hutool.core.util.URLUtil
 import io.kurumi.bytes
 import io.kurumi.catch
-import io.kurumi.core.编码
 import io.kurumi.string
 
-object _链接编码实现 : 编码 {
+
+actual object 链接编码实现 : 编码 {
 
     override fun 编码(_内容: ByteArray): ByteArray {
         return URLUtil.encode(_内容.string).bytes
@@ -37,7 +37,7 @@ object _链接编码实现 : 编码 {
 
 }
 
-object _Unicode编码实现 : 编码 {
+actual object Unicode编码实现 : 编码 {
 
     override fun 编码(_内容: ByteArray): ByteArray {
         return UnicodeUtil.toUnicode(_内容.string).bytes

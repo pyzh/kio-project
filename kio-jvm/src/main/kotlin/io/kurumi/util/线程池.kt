@@ -15,29 +15,21 @@
  *
  */
 
-package io.kurumi.desktop
+package io.kurumi.util
 
-import io.kurumi.app.content.应用
-import kotlin.reflect.KClass
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
-object 桌面应用测试 : 桌面应用() {
+actual open class 线程池 private constructor(val _线程池: Executor) {
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        启动(args)
+    actual constructor() : this(Executors.newCachedThreadPool())
+    actual constructor(_最大线程: Int) : this(Executors.newFixedThreadPool(_最大线程))
+
+
+    actual fun 处理(_执行: () -> Unit) {
+        _线程池.execute(_执行)
     }
 
-    override val 应用: KClass<out 应用> get() = App::class
-
-    class App : 应用 {
-
-        override fun 应用启动事件() {
-
-            测试界面::class.启动()
-
-        }
-
-    }
-
+    companion actual object : 线程池(10)
 
 }

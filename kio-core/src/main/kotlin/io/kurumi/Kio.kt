@@ -137,7 +137,7 @@ inline fun <Ex : Exception, R : Any?> (() -> R).catch(_exec: (Ex) -> R): R {
 
 }
 
-fun <E, T> Array<E>.arrayTrans(transer: E.() -> T): Array<T> {
+inline fun <E, reified T> Array<E>.arrayTrans(transer: E.() -> T): Array<T> {
 
     val new = ArrayList<T>()
     forEach {

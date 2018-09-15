@@ -130,12 +130,6 @@ open class 数据列表<内容 : Any> constructor(val 列表: MutableList<内容
         } as 内容?
     }
 
-    interface 参数代理<T> {
-        var value: T?
-    }
-
-    external inline fun <reified 内容> 参数(_键值: Int): 参数代理<内容>
-
     open fun opt(index: Int): Any? {
         if (size <= index) return null
         return get(index)

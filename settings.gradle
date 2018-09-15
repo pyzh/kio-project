@@ -35,5 +35,4 @@ pluginManagement {
 rootProject.name = 'kio'
 include 'kio-core'
 include 'kio-jvm'
-include 'kio-jvm-core'
 include 'kio-android'
