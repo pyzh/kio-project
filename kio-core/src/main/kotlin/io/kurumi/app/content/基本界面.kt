@@ -25,6 +25,8 @@ interface 基本界面 : 上下文 {
     fun 显示()
     fun 关闭()
 
+    fun 应用颜色()
+
     var 标题: String
     var 内容: 视图?
 

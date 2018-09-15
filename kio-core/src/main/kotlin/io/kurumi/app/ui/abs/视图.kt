@@ -47,8 +47,8 @@ interface 视图 {
 
     var 阴影: Int
 
-    var 单击事件: () -> Unit
-    var 附加事件: () -> Unit
+    fun 单击事件(_事件 : () -> Unit)
+    fun 附加事件(_事件 : () -> Unit)
 
 
     fun 置填充(_上: Int, _下: Int, _左: Int, _右: Int)

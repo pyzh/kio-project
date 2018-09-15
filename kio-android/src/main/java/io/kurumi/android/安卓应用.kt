@@ -42,6 +42,7 @@ abstract class 安卓应用 : Application() {
     fun 启动界面(_界面: KClass<out 界面>) {
         val _意图 = Intent(this, KurumiActivity::class.java)
         _意图.putExtra("_界面", _界面.java)
+        _意图.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(_意图)
     }
 

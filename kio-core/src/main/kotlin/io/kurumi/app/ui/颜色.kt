@@ -75,7 +75,7 @@ data class 颜色 constructor(val 所有: Array<String>, val 基本色键值: In
         fun 解析(_颜色: String): Int {
             if (_颜色.get(0) == '#') {
                 // Use a long to avoid rollovers on #ffXXXXXX
-                var color = _颜色.substring(1, 16).toLong()
+                var color = _颜色.substring(1).toLong(16)
                 if (_颜色.length == 7) {
                     // Set the alpha value
                     color = color or -0x1000000

@@ -85,7 +85,9 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
 
     override var 右填充: Int
         get() = dpx(内容.paddingRight)
-        set(value) {}
+        set(value) {
+            置填充(上填充, 下填充, 左填充, value)
+        }
 
     override var 填充: Int
         get() = -1
@@ -107,20 +109,18 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
             }
         }
 
-    override var 单击事件: () -> Unit = {}
-        set(value) {
-            内容.setOnClickListener {
-                value()
-            }
+    override fun 单击事件(_事件: () -> Unit) {
+        内容.setOnClickListener {
+            _事件()
         }
+    }
 
-    override var 附加事件: () -> Unit = {}
-        set(value) {
-            内容.setOnLongClickListener {
-                value()
-                true
-            }
+    override fun 附加事件(_事件: () -> Unit) {
+        内容.setOnLongClickListener {
+            _事件()
+            true
         }
+    }
 
     override var 背景颜色: Int
         get() = -1

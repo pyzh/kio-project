@@ -41,7 +41,7 @@ open class 安卓布局(_上下文: 上下文, override val 内容: ViewGroup = 
     }
 
     override fun 取子视图(_键值: Int): 视图? {
-        return 内容.getChildAt(_键值).取视图()
+        return 内容.getChildAt(_键值) as 视图?
     }
 
 }

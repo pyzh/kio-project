@@ -28,10 +28,7 @@ import io.kurumi.android.app.KurumiActivity
 import io.kurumi.android.ui.*
 import io.kurumi.app.content.基本界面
 import io.kurumi.app.content.界面
-import io.kurumi.app.ui.abs.布局
-import io.kurumi.app.ui.abs.文本视图
-import io.kurumi.app.ui.abs.线性布局
-import io.kurumi.app.ui.abs.视图
+import io.kurumi.app.ui.abs.*
 import io.kurumi.app.ui.颜色
 import io.kurumi.applyIfNotNull
 import java.util.*
@@ -53,6 +50,7 @@ open class 安卓界面 : Activity(), 基本界面 {
         @Suppress("DEPRECATION")
         titleColor = 0xFFFFF
         setContentView(root)
+        应用颜色()
     }
 
     override fun 关闭() {
@@ -67,16 +65,16 @@ open class 安卓界面 : Activity(), 基本界面 {
 
 
     override var 内容: 视图?
-        get() = root.取视图()
+        get() = root.getTag(R.id._kio_view_obj) as 视图?
         set(value) {
-            requireNotNull(value, { "view obj must not be null" })
+            requireNotNull(value, { "视图不能为空" })
             root.setTag(R.id._kio_view_obj, value)
             if (value !is 安卓视图) error("无效的视图 : $value")
             root.removeAllViews()
             root.addView(value.内容, ViewGroup.LayoutParams(-1, -1))
         }
 
-    fun 应用颜色() {
+    override fun 应用颜色() {
 
         when (颜色.基本) {
             颜色.红色 -> when (颜色.强调) {
@@ -551,4 +549,7 @@ open class 安卓界面 : Activity(), 基本界面 {
         return 安卓文本视图(this)
     }
 
+    override fun 按钮(): 按钮 {
+        return 安卓按钮(this)
+    }
 }

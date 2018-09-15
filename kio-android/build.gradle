@@ -21,6 +21,7 @@ plugins {
 
 apply plugin: 'com.android.library'
 
+
 apply plugin: 'kotlin-platform-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -93,7 +94,7 @@ dependencies {
     implementation 'me.weishu:free_reflection:1.2.0'
     implementation "cn.hutool:hutool-core:${hutool_version}"
     implementation "cn.hutool:hutool-http:${hutool_version}"
-    implementation 'com.android.support:design:28.0.0-rc02'
+   // implementation 'com.android.support:design:28.0.0-rc02'
     expectedBy project(":kio-core")
 }
 

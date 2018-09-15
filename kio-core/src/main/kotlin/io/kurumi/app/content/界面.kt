@@ -17,10 +17,7 @@
 
 package io.kurumi.app.content
 
-import io.kurumi.app.ui.abs.布局
-import io.kurumi.app.ui.abs.文本视图
-import io.kurumi.app.ui.abs.线性布局
-import io.kurumi.app.ui.abs.视图
+import io.kurumi.app.ui.abs.*
 import kotlin.reflect.KClass
 
 open class 界面 : 上下文,基本界面 {
@@ -33,6 +30,10 @@ open class 界面 : 上下文,基本界面 {
 
     override fun 关闭() {
         实现.关闭()
+    }
+
+    override fun 应用颜色() {
+        实现.应用颜色()
     }
 
     override var 标题: String
@@ -60,6 +61,8 @@ open class 界面 : 上下文,基本界面 {
     override fun 水平布局(): 线性布局 = 实现.水平布局()
 
     override fun 文本视图(): 文本视图 = 实现.文本视图()
+
+    override fun 按钮(): 按钮 = 实现.按钮()
 
     private var _界面创建事件 :() -> Unit = {}
     private var _界面销毁事件 :() -> Unit = {}

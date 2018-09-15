@@ -17,6 +17,7 @@
 
 package io.kurumi.android.ui
 
+import android.graphics.Color
 import android.widget.TextView
 import io.kurumi.app.content.上下文
 import io.kurumi.app.ui.abs.文本视图

@@ -17,10 +17,7 @@
 
 package io.kurumi.app.content
 
-import io.kurumi.app.ui.abs.布局
-import io.kurumi.app.ui.abs.文本视图
-import io.kurumi.app.ui.abs.线性布局
-import io.kurumi.app.ui.abs.视图
+import io.kurumi.app.ui.abs.*
 
 /**
  * 提供UI显示的接口 多个实现(android/javafx/html等)
@@ -29,23 +26,13 @@ interface 上下文 {
 
     // --------------  视图 ---------------------
 
-    companion object {
-
-        private fun <R : 视图> R.applyChild(init: R.() -> Unit, parent: 布局) {
-            apply(init).apply {
-                parent.加入子视图(this)
-            }
-        }
-
-    }
-
     fun 视图(): 视图
 
     fun 视图(_初始化: (视图.() -> Unit)): 视图 = 视图().apply(_初始化)
 
     fun 布局.视图(): 视图 = 视图()
 
-    fun 布局.视图(_初始化: (视图.() -> Unit)): 视图 = 视图(_初始化).also {
+    fun 布局.视图(_初始化: (视图.() -> Unit)): 视图 = this@上下文.视图(_初始化).also {
         子视图.add(it)
     }
 
@@ -57,7 +44,7 @@ interface 上下文 {
 
     fun 布局.布局(): 布局 = 布局()
 
-    fun 布局.布局(_初始化: (布局.() -> Unit)): 布局 = 布局(_初始化).also {
+    fun 布局.布局(_初始化: (布局.() -> Unit)): 布局 = this@上下文.布局(_初始化).also {
         子视图.add(it)
     }
 
@@ -69,7 +56,7 @@ interface 上下文 {
 
     fun 布局.垂直布局(): 线性布局 = 垂直布局()
 
-    fun 布局.垂直布局(_初始化: (线性布局.() -> Unit)): 线性布局 = 垂直布局(_初始化).also {
+    fun 布局.垂直布局(_初始化: (线性布局.() -> Unit)): 线性布局 = this@上下文.垂直布局(_初始化).also {
         子视图.add(it)
     }
 
@@ -79,7 +66,7 @@ interface 上下文 {
 
     fun 布局.水平布局(): 线性布局 = 水平布局()
 
-    fun 布局.水平布局(_初始化: (线性布局.() -> Unit)): 线性布局 = 水平布局(_初始化).also {
+    fun 布局.水平布局(_初始化: (线性布局.() -> Unit)): 线性布局 = this@上下文.水平布局(_初始化).also {
         子视图.add(it)
     }
 
@@ -91,7 +78,19 @@ interface 上下文 {
 
     fun 布局.文本视图(): 文本视图 = 文本视图()
 
-    fun 布局.文本视图(_初始化: (文本视图.() -> Unit)): 文本视图 = 文本视图(_初始化).also {
+    fun 布局.文本视图(_初始化: (文本视图.() -> Unit)): 文本视图 = this@上下文.文本视图(_初始化).also {
+        子视图.add(it)
+    }
+
+    // --------------  按钮 -----------------
+
+    fun 按钮(): 按钮
+
+    fun 按钮(_初始化: (按钮.() -> Unit)): 按钮 = 按钮().apply(_初始化)
+
+    fun 布局.按钮(): 按钮 = 按钮()
+
+    fun 布局.按钮(_初始化: (按钮.() -> Unit)): 按钮 = this@上下文.按钮(_初始化).also {
         子视图.add(it)
     }
 
