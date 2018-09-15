@@ -26,8 +26,8 @@ apply from : "../mvn.gradle"
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     expectedBy project(":kio-core")
-    compile("cn.hutool:hutool-core:${rootProject.ext.hutool_version}")
-    compile("cn.hutool:hutool-http:${rootProject.ext.hutool_version}")
+    compile "cn.hutool:hutool-core:${hutool_version}"
+    compile "cn.hutool:hutool-http:${hutool_version}"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 

@@ -18,7 +18,10 @@
 
 
 buildscript {
-    ext.kotlin_version = '1.2.61'
+    ext {
+        kotlin_version = '1.2.70'
+        hutool_version = "4.1.12"
+    }
     repositories {
         google()
         jcenter()
@@ -35,10 +38,6 @@ buildscript {
 
 plugins {
     id 'org.hidetake.ssh' version '2.9.0'
-}
-
-ext {
-    hutool_version = "4.1.12"
 }
 
 ssh.settings {
