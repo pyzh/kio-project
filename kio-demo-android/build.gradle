@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+
+apply plugin: 'kotlin-platform-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "io.kurumi.demo.android"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles '../proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude "kotlin/**"
+        exclude "io/**"
+        exclude "**/*.kotlin_metadata"
+        exclude "META-INF/*.kotlin_module"
+        exclude "META-INF/*.version"
+    }
+
+}
+
+sourceCompatibility = "1.8"
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    expectedBy project(":kio-demo-core")
+    implementation project(':kio-android')
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}

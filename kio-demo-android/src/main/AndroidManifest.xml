@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		  package="io.kurumi.demo.android">
+	
+	<application
+			android:name=".KioDemoApp"
+			android:label="KioDemo"
+			android:supportsRtl="true" />
+</manifest>

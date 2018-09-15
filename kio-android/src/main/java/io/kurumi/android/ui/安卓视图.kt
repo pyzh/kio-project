@@ -29,12 +29,6 @@ import io.kurumi.主线程
 
 open class 安卓视图(override val 上下文: 上下文, open val 内容: View = View(取上下文(上下文))) : 视图 {
 
-    init {
-
-        内容.setTag(R.id._kio_view_obj, this)
-
-    }
-
     var params: ViewGroup.LayoutParams
         get() {
             var f = 内容.layoutParams
@@ -164,14 +158,5 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         }
 
     }
-
-}
-
-fun <T : 视图> View?.取视图(): T? {
-
-    if (this == null) return null
-
-    @Suppress("UNCHECKED_CAST")
-    return getTag(R.id._kio_view_obj) as T?
 
 }

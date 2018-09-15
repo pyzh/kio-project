@@ -520,18 +520,15 @@ open class 安卓界面 : Activity(), 基本界面 {
 
     }
 
-    fun 启动界面(_界面: Class<out 界面>) {
-
-        val _意图 = Intent(this, KurumiActivity::class.java)
-        _意图.putExtra("_界面", _界面)
-        startActivity(_意图)
-
-    }
-
     override fun 显示() {
     }
 
     override fun 子界面(_界面: KClass<out 界面>) {
+
+        val _意图 = Intent(this, KurumiActivity::class.java)
+        _意图.putExtra("_界面", _界面.java)
+        startActivity(_意图)
+
     }
 
     override fun 视图(): 视图 {

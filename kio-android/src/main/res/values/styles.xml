@@ -33,6 +33,7 @@
 		<item name="android:textColorSecondary">@color/light_text_color_secondary</item>
 		<item name="android:textColorTertiary">@color/material_grey_700</item>
 		<item name="android:windowBackground">@color/light_window_background</item>
+		<!--
 		<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
 		<item name="card_background">@color/light_card_background</item>
 		<item name="title_color">@color/light_title_color</item>
@@ -40,8 +41,9 @@
 		<item name="selected_color">@color/light_selected_color</item>
 		<item name="popup_theme">@style/PopupThemeLight</item>
 		<item name="appbar_theme">@style/AppbarThemeLight</item>
-		<item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeLight</item>
 		<item name="popup_menu_theme">@style/PopupMenuLight</item>
+		-->
+		<item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeLight</item>
 	</style>
 	
 	<style name="PopupMenuLight" parent="Widget.AppCompat.Light.PopupMenu">

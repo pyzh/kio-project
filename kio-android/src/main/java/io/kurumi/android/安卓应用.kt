@@ -20,10 +20,14 @@ package io.kurumi.android
 import android.app.ActivityThread
 import android.app.Application
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import io.kurumi.android.app.KurumiActivity
+import io.kurumi.app.content.界面
 import me.weishu.reflection.Reflection
 import kotlin.concurrent.thread
+import kotlin.reflect.KClass
 
 abstract class 安卓应用 : Application() {
 
@@ -31,8 +35,15 @@ abstract class 安卓应用 : Application() {
         val 实例: 安卓应用 get() = ActivityThread.currentApplication() as 安卓应用
     }
 
-    abstract fun 应用启动事件()
-    abstract fun 应用关闭事件()
+    abstract fun 应用启动事件(_上下文: Context)
+    open fun 应用关闭事件() {
+    }
+
+    fun 启动界面(_界面: KClass<out 界面>) {
+        val _意图 = Intent(this, KurumiActivity::class.java)
+        _意图.putExtra("_界面", _界面.java)
+        startActivity(_意图)
+    }
 
     val 信息 by lazy {
         packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)!!

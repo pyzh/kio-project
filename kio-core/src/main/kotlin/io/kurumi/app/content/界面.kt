@@ -21,10 +21,35 @@ import io.kurumi.app.ui.abs.布局
 import io.kurumi.app.ui.abs.文本视图
 import io.kurumi.app.ui.abs.线性布局
 import io.kurumi.app.ui.abs.视图
+import kotlin.reflect.KClass
 
-open class 界面 : 上下文 {
+open class 界面 : 上下文,基本界面 {
 
     lateinit var 实现: 基本界面
+
+    override fun 显示() {
+        实现.显示()
+    }
+
+    override fun 关闭() {
+        实现.关闭()
+    }
+
+    override var 标题: String
+        get() = 实现.标题
+        set(value) {
+            实现.标题 = value
+        }
+
+    override var 内容: 视图?
+        get() = 实现.内容
+        set(value) {
+            实现.内容 = value
+        }
+
+    override fun 子界面(_界面: KClass<out 界面>) {
+        实现.子界面(_界面)
+    }
 
     override fun 视图(): 视图 = 实现.视图()
 
@@ -36,8 +61,24 @@ open class 界面 : 上下文 {
 
     override fun 文本视图(): 文本视图 = 实现.文本视图()
 
-    open var 界面创建事件 = {}
+    private var _界面创建事件 :() -> Unit = {}
+    private var _界面销毁事件 :() -> Unit = {}
 
-    open var 界面销毁事件 = {}
+    open fun 界面创建事件() {
+        _界面创建事件()
+    }
+
+    fun 界面创建事件(_覆盖 : () -> Unit) {
+        _界面创建事件 = _覆盖
+    }
+
+    open fun 界面销毁事件() {
+        _界面销毁事件()
+    }
+
+    fun 界面销毁事件(_覆盖 : () -> Unit) {
+        _界面销毁事件 = _覆盖
+    }
+
 
 }

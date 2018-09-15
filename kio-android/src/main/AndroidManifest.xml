@@ -35,7 +35,8 @@
 		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 		-->
-	<application>
+	<application
+			android:theme="@style/Kurumi.Indigo.Pink">
 		<provider
 				android:name=".provider.FileProvider"
 				android:authorities="${applicationId}.fpv"
