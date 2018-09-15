@@ -17,18 +17,8 @@
 
 package io.kurumi.app.ui.abs
 
-import io.kurumi.core.文件
+interface 图片视图 : 视图 {
 
-interface 文本视图 : 视图 {
 
-    var 文本: String
-    var 文本颜色: Int
-    var 文本大小: Int
-    var 单行 : Boolean
-    var 最大行数 : Int
-    var 最大字数 : Int
-
-    fun 字体(_地址 : String) = 字体(文件.取实例(_地址))
-    fun 字体(_字体 : 文件)
 
 }
