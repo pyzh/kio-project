@@ -19,6 +19,6 @@ package io.kurumi.core
 
 expect object 命令 {
 
-    fun 执行(_命令: String, _回调: (_成功: Boolean, _结果: String) -> Unit = { _成功, _结果 -> })
+    fun 执行(_命令: String, _回调: (_成功: Boolean, _结果: String) -> Unit = { _,_ -> })
 
 }
