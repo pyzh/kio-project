@@ -17,8 +17,13 @@
 
 package io.kurumi.app.ui.abs
 
+import io.kurumi.core.文件
+
 interface 图片视图 : 视图 {
 
-
+    fun 图片(_地址 : String)
+    fun 图片(_地址 : String,_宽度 : Int,_高度 : Int)
+    fun 图片(_文件 : 文件)
+    fun 图片(_文件: 文件,_宽度 : Int,_高度 : Int)
 
 }
