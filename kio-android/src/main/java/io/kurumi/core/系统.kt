@@ -21,8 +21,8 @@ import cn.hutool.core.util.ClipboardUtil
 
 actual object 系统 {
 
-    val osName = System.getProperty("os.name")
-    val osVersion = System.getProperty("os.version")
+    val osName = System.getProperty("os.name")!!
+    val osVersion = System.getProperty("os.version")!!
 
     actual val Linux = osName.contains("Linux") || osName.contains("LINUX")
     actual val Android = Linux && "Dalvik" == System.getProperty("java.vm.name")

@@ -21,5 +21,6 @@
 	<application
 			android:name=".KioDemoApp"
 			android:label="KioDemo"
+			android:icon="@drawable/ic_android"
 			android:supportsRtl="true" />
 </manifest>

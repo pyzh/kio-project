@@ -30,11 +30,17 @@ open class 安卓图片视图(_上下文: 上下文, override val 内容: ImageV
         Glide.with(内容).load(_地址).into(内容)
     }
 
+    fun 长度(_长度 : Int) :Int {
+        if (_长度 == -2) return Integer.MIN_VALUE
+        else if (_长度 == -1) return Integer.MAX_VALUE
+        else return _长度
+    }
+
     override fun 图片(_地址: String, _宽度: Int, _高度: Int) {
         Glide.with(内容)
                 .load(_地址)
                 .apply(RequestOptions().apply {
-                    override(_宽度,_高度)
+                    override(长度(_宽度),长度(_高度))
                 })
                 .into(内容)
     }
@@ -47,7 +53,7 @@ open class 安卓图片视图(_上下文: 上下文, override val 内容: ImageV
         Glide.with(内容)
                 .load(_文件.文件)
                 .apply(RequestOptions().apply {
-                    override(_宽度,_高度)
+                    override(长度(_宽度),长度(_高度))
                 })
                 .into(内容)
     }

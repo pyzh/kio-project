@@ -96,7 +96,8 @@ fun <T> Array<T>.arrString(_分割: String = "", transer: (T) -> String = {
     it.toString()
 }): String {
     val str = StringBuilder()
-    forEach {
+    forEachIndexed { index, it ->
+        if (index != 0) str.append(_分割)
         str.append(transer.invoke(it))
     }
     return str.toString()

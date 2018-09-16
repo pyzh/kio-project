@@ -91,6 +91,7 @@ interface 编码 {
         fun encode(bytes: ByteArray): String {
             var i = 0
             var index = 0
+            @Suppress("VARIABLE_WITH_REDUNDANT_INITIALIZER")
             var digit = 0
             var currByte: Int
             var nextByte: Int

@@ -49,10 +49,8 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
             var f : ViewGroup.LayoutParams? = 内容.layoutParams
             if (f == null) {
                 f = ViewGroup.MarginLayoutParams(-2, -2)
-                params = f
             } else if (f !is ViewGroup.MarginLayoutParams) {
                 f = ViewGroup.MarginLayoutParams(f)
-                params = f
             }
             return f
         }
@@ -124,6 +122,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         set(value) {
             params = marginParams.apply {
                 topMargin = dp(value)
+                setMargins(leftMargin,topMargin,rightMargin,bottomMargin)
             }
         }
 
@@ -132,6 +131,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         set(value) {
             params = marginParams.apply {
                 bottomMargin = dp(value)
+                setMargins(leftMargin,topMargin,rightMargin,bottomMargin)
             }
         }
 
@@ -140,6 +140,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         set(value) {
             params = marginParams.apply {
                 leftMargin = dp(value)
+                setMargins(leftMargin,topMargin,rightMargin,bottomMargin)
             }
         }
 
@@ -148,6 +149,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         set(value) {
             params = marginParams.apply {
                 rightMargin = dp(value)
+                setMargins(leftMargin,topMargin,rightMargin,bottomMargin)
             }
         }
 
@@ -160,6 +162,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
                 bottomMargin = intvalue
                 leftMargin = intvalue
                 rightMargin = intvalue
+                setMargins(leftMargin,topMargin,rightMargin,bottomMargin)
             }
         }
 
