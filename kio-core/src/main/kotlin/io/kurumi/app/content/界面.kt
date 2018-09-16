@@ -64,6 +64,8 @@ open class 界面 : 上下文,基本界面 {
 
     override fun 按钮(): 按钮 = 实现.按钮()
 
+    override fun 图片视图(): 图片视图 = 实现.图片视图()
+
     private var _界面创建事件 :() -> Unit = {}
     private var _界面销毁事件 :() -> Unit = {}
 

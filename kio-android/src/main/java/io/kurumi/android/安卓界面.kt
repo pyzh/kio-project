@@ -552,4 +552,8 @@ open class 安卓界面 : Activity(), 基本界面 {
     override fun 按钮(): 按钮 {
         return 安卓按钮(this)
     }
+
+    override fun 图片视图(): 图片视图 {
+        return 安卓图片视图(this)
+    }
 }
