@@ -20,7 +20,6 @@ package io.kurumi.android.ui
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import io.kurumi.android.R
 import io.kurumi.android.安卓应用
 import io.kurumi.android.系统服务
 import io.kurumi.app.content.上下文
@@ -42,6 +41,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
             主线程 {
                 内容.layoutParams = value
                 内容.requestLayout()
+                内容.invalidateOutline()
             }
         }
 
