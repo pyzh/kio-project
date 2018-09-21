@@ -20,15 +20,18 @@ package io.kurumi.android.ui
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import io.kurumi.android.安卓布局重力
 import io.kurumi.android.安卓应用
 import io.kurumi.android.系统服务
 import io.kurumi.app.content.上下文
 import io.kurumi.app.ui.abs.视图
+import io.kurumi.app.ui.布局重力
 import io.kurumi.主线程
 
 open class 安卓视图(override val 上下文: 上下文, open val 内容: View = View(取上下文(上下文))) : 视图 {
 
-    var params: ViewGroup.LayoutParams
+    internal var params: ViewGroup.LayoutParams
         get() {
             var f: ViewGroup.LayoutParams? = 内容.layoutParams
             if (f == null) {
@@ -40,14 +43,12 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         set(value) {
             主线程 {
                 内容.layoutParams = value
-                内容.requestLayout()
-                内容.invalidateOutline()
             }
         }
 
-    val marginParams: ViewGroup.MarginLayoutParams
+    internal val marginParams: ViewGroup.MarginLayoutParams
         get() {
-            var f : ViewGroup.LayoutParams? = 内容.layoutParams
+            var f: ViewGroup.LayoutParams? = 内容.layoutParams
             if (f == null) {
                 f = ViewGroup.MarginLayoutParams(-2, -2)
             } else if (f !is ViewGroup.MarginLayoutParams) {
@@ -108,7 +109,7 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         set(value) {
             主线程 {
                 val intvalue = dp(value)
-                内容.setPadding(intvalue,intvalue,intvalue,intvalue)
+                内容.setPadding(intvalue, intvalue, intvalue, intvalue)
             }
         }
 
@@ -199,6 +200,39 @@ open class 安卓视图(override val 上下文: 上下文, open val 内容: View
         get() = dpx(内容.translationZ)
         set(value) {
             内容.translationZ = dp(value).toFloat()
+        }
+
+    override var 布局内重力: 布局重力
+        get() {
+            val param = params
+            if (param !is LinearLayout.LayoutParams) {
+                return io.kurumi.app.ui.布局重力.左上
+            }
+            return 安卓布局重力.到重力(param.gravity)
+        }
+        set(value) {
+            params = params.apply {
+                if (this is LinearLayout.LayoutParams) {
+                    gravity = 安卓布局重力.到重力(value)
+                }
+            }
+        }
+
+    override var 布局内权重: Float
+        get() {
+            val params = params
+            if (params !is LinearLayout.LayoutParams) {
+                return -1f
+            }
+            return params.weight
+        }
+        set(value) {
+            var param = params
+            if (param !is LinearLayout.LayoutParams) {
+                param = LinearLayout.LayoutParams(param)
+                params = param
+            }
+            param.weight = value
         }
 
     companion object {

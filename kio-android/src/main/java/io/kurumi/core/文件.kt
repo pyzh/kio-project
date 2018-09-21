@@ -31,7 +31,6 @@ import io.kurumi.arrString
 import io.kurumi.arrayTrans
 import io.kurumi.data.数据
 import io.kurumi.data.数据列表
-import io.kurumi.synchronized
 import io.kurumi.util.提示
 import java.io.File
 

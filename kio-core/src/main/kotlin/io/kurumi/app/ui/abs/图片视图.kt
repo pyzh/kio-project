@@ -17,6 +17,7 @@
 
 package io.kurumi.app.ui.abs
 
+import io.kurumi.app.content.上下文
 import io.kurumi.core.文件
 
 interface 图片视图 : 视图 {
@@ -27,3 +28,16 @@ interface 图片视图 : 视图 {
     fun 图片(_文件: 文件,_宽度 : Int,_高度 : Int)
 
 }
+
+
+fun 上下文.图片视图(_初始化: (图片视图.() -> Unit)) = 图片视图().apply(_初始化)
+
+fun 布局.图片视图(_初始化: (图片视图.() -> Unit)) = 上下文.图片视图().also {
+    子视图.add(it)
+}.apply(_初始化)
+
+fun 上下文.图片视图(_图片地址: String) = 图片视图().apply {
+    图片(_图片地址)
+}
+
+fun 上下文.图片视图(_图片地址: String, _初始化: (图片视图.() -> Unit)) = 图片视图(_图片地址).apply(_初始化)

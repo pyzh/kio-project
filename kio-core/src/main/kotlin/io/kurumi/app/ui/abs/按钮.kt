@@ -17,5 +17,21 @@
 
 package io.kurumi.app.ui.abs
 
+import io.kurumi.app.content.上下文
+
 interface 按钮 : 文本视图 {
 }
+
+fun 上下文.按钮(_初始化: (按钮.() -> Unit)) = 按钮().apply(_初始化)
+
+fun 布局.按钮() = 上下文.按钮().also {
+    子视图.add(it)
+}
+
+fun 布局.按钮(_初始化: (按钮.() -> Unit)) = 按钮().apply(_初始化)
+
+fun 上下文.按钮(_文本: String) = 按钮().apply {
+    文本 = _文本
+}
+
+fun 上下文.按钮(_文本: String, _初始化: (按钮.() -> Unit)) = 按钮(_文本).apply(_初始化)

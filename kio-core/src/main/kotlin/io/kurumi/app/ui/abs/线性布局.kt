@@ -17,6 +17,7 @@
 
 package io.kurumi.app.ui.abs
 
+import io.kurumi.app.content.上下文
 import io.kurumi.app.ui.布局方向
 import io.kurumi.app.ui.布局重力
 
@@ -34,3 +35,33 @@ interface 线性布局 : 布局 {
     }
 
 }
+
+
+fun 上下文.垂直布局(_初始化: (线性布局.() -> Unit)): 线性布局 = 垂直布局().apply(_初始化)
+
+fun 布局.垂直布局(): 线性布局 = 上下文.垂直布局().also {
+    子视图.add(it)
+}
+
+fun 布局.垂直布局(_初始化: (线性布局.() -> Unit)) = 垂直布局().apply(_初始化)
+
+fun 上下文.水平布局(_初始化: (线性布局.() -> Unit)) = 水平布局().apply(_初始化)
+
+fun 布局.水平布局(): 线性布局 = 上下文.水平布局().also {
+    子视图.add(it)
+}
+
+fun 布局.水平布局(_初始化: (线性布局.() -> Unit)) = 水平布局().apply(_初始化)
+
+fun 布局.边距布局(_边距: Int): 线性布局 {
+    return if (this is 线性布局 && 方向 == 布局方向.水平) {
+        水平布局 {
+            左边距 = _边距
+        }
+    } else 垂直布局 {
+        上边距 = _边距
+    }
+
+}
+
+fun 布局.边距布局(_边距: Int, _初始化: (线性布局.() -> Unit)) = 边距布局(_边距).apply(_初始化)

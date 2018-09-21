@@ -35,9 +35,9 @@ abstract class 安卓应用 : Application() {
         val 实例: 安卓应用 get() = ActivityThread.currentApplication() as 安卓应用
     }
 
-    abstract fun 应用启动事件(_上下文: Context)
-    open fun 应用关闭事件() {
-    }
+    open fun 应用初始化事件() = Unit
+    abstract fun 应用启动事件()
+    open fun 应用关闭事件() = Unit
 
     fun 启动界面(_界面: KClass<out 界面>) {
         val _意图 = Intent(this, KurumiActivity::class.java)
@@ -64,11 +64,12 @@ abstract class 安卓应用 : Application() {
         Reflection.unseal(base) // support for androidP
     }
 
-    override fun onCreate() {
+    override final fun onCreate() {
         super.onCreate()
         Runtime.getRuntime().addShutdownHook(thread(false, false, null,
                 "KioRuntimeShutdownHook") {
             应用关闭事件()
         })
+        应用初始化事件()
     }
 }

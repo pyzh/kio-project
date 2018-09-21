@@ -17,6 +17,7 @@
 
 package io.kurumi.app.ui.abs
 
+import io.kurumi.app.content.上下文
 import io.kurumi.data.数据
 import io.kurumi.data.数据列表
 
@@ -56,3 +57,11 @@ interface 布局 : 视图 {
     fun 删子视图(_键值: Int): 视图? = 子视图.removeAt(_键值)
 
 }
+
+fun 上下文.布局(_初始化: (布局.() -> Unit)) = 布局().apply(_初始化)
+
+fun 布局.布局(): 布局 = 上下文.布局().also {
+    子视图.add(it)
+}
+
+fun 布局.布局(_初始化: (布局.() -> Unit)) = 布局().apply(_初始化)
