@@ -43,6 +43,7 @@ expect class 连接 {
     fun HTTP代理(_地址: String, _端口: Int = 80): 连接
     fun SOCKS代理(_地址: String, _端口: Int): 连接
 
+    fun 同步() : 结果
     fun 发送(_回调: 结果.() -> Unit)
 
     open inner class 结果 internal constructor() {

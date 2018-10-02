@@ -19,10 +19,7 @@ package io.kurumi.jvm
 
 import io.kurumi.app.content.基本界面
 import io.kurumi.app.content.界面
-import io.kurumi.app.ui.abs.布局
-import io.kurumi.app.ui.abs.文本视图
-import io.kurumi.app.ui.abs.线性布局
-import io.kurumi.app.ui.abs.视图
+import io.kurumi.app.ui.abs.*
 import javafx.stage.Stage
 import kotlin.reflect.KClass
 
@@ -65,6 +62,22 @@ class 桌面界面 : Stage(), 基本界面 {
     }
 
     override fun 文本视图(): 文本视图 {
+        TODO()
+    }
+
+    override fun 应用颜色() {
+        TODO()
+    }
+
+    override fun 按钮(): 按钮 {
+        TODO()
+    }
+
+    override fun 图片视图(): 图片视图 {
+        TODO()
+    }
+
+    override fun 编辑框(): 编辑框 {
         TODO()
     }
 }

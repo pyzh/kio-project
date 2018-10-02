@@ -208,6 +208,10 @@ open actual class 连接 {
 
     }
 
+    actual var 格式: String
+        get() = TODO()
+        set(value) {}
+
 }
 
 
