@@ -18,6 +18,7 @@
 package io.kurumi.app.ui.widget
 
 import io.kurumi.app.content.上下文
+import io.kurumi.app.ui.abs.垂直布局
 import io.kurumi.app.ui.abs.文本视图
 import io.kurumi.app.ui.abs.线性布局
 import io.kurumi.core.文件
@@ -25,7 +26,7 @@ import 图标按钮
 
 interface 标题栏 : 线性布局, 文本视图 {
 
-    fun 导航按钮(_图标: String) {}
+    fun 导航按钮(_图标: String)
 
 }
 
@@ -35,7 +36,8 @@ fun 上下文.标题栏(): 标题栏 {
 
         val 导航按钮 = 图标按钮 { 隐藏() }
 
-        val 标题布局 = 垂直布局()
+        val 标题布局 = 垂直布局 {}
+
         val 标题 = 标题布局.文本视图()
 
         override var 文本: String

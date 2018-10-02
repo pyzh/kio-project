@@ -556,4 +556,9 @@ open class 安卓界面 : Activity(), 基本界面 {
     override fun 图片视图(): 图片视图 {
         return 安卓图片视图(this)
     }
+
+    override fun 编辑框(): 编辑框 {
+        return 安卓编辑框(this)
+    }
+
 }

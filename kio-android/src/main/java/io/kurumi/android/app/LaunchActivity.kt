@@ -53,7 +53,7 @@ class LaunchActivity : Activity() {
 
     fun launch() {
 
-        安卓应用.实例.应用启动事件(this)
+        安卓应用.实例.应用启动事件()
 
         finish()
 

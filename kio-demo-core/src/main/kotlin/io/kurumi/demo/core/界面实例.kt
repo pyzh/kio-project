@@ -18,6 +18,7 @@
 package io.kurumi.demo.core
 
 import io.kurumi.app.content.界面
+import io.kurumi.app.ui.abs.*
 import io.kurumi.util.提示
 
 class 界面实例 : 界面() {
@@ -38,13 +39,15 @@ class 界面实例 : 界面() {
 
             边距布局(8)
 
+            val 编辑框1 = 编辑框("输入什么? ")
+
             按钮 {
 
                 文本 = "一个按钮 ~"
 
                 单击事件 {
 
-                    提示("你单击我力,,,")
+                    提示("你输入了 : ${编辑框1.文本}")
 
                 }
 
