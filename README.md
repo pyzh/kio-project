@@ -1,10 +1,6 @@
 # kio-project
 
-自用的kotlin工具库
-
-基础工具使用hutool  
-http/socket服务器修改自nanohttpd  
-mc wsserver事件来自PEWS-API  
+多平台Kotlin界面/工具库
 
 欢迎指正错误 我什么都<del>不</del>会做的
 
@@ -31,6 +27,5 @@ dependencies {
 }
 ~~~
 
-### Js项目支持
-如果使用Kio的内置浏览器无须任何操作,而一般浏览器需要引用Kio支持库
-(Kio浏览器会增加 Kio-Interface 的 Http头以判断版本
+项目格式 : 按照Kotlin多平台项目的 core/android/jvm/js格式  
+开发中 目前仅android部分可用  jvm , js 将会支持  
